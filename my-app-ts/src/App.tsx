@@ -1,11 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { onAuthStateChanged } from 'firebase/auth';
+import { fireAuth } from './firebase';
+import ReactDOM from 'react-dom/client';
+import Pages from './Pages'
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
+  // stateとしてログイン状態を管理する。ログインしていないときはnullになる。
+  const [loginUser, setLoginUser] = useState(fireAuth.currentUser);
+
+  // ログイン状態を監視して、stateをリアルタイムで更新する
+  onAuthStateChanged(fireAuth, user => {
+    setLoginUser(user);
+  });
+
+  const rootElement = document.getElementById('root');
+  if (rootElement) {
+    ReactDOM.createRoot(rootElement).render(
+      <React.StrictMode>
+        <BrowserRouter>
+          <Pages />
+        </BrowserRouter>
+      </React.StrictMode>
+    );
+  }
+  
+
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <Table /> */}
+      {/* <LoginForm /> */}
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
@@ -18,8 +44,7 @@ function App() {
         >
           Learn React
         </a>
-        <p>test!!</p>
-      </header>
+      </header> */}
     </div>
   );
 }
