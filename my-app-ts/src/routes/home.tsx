@@ -9,7 +9,6 @@ import {
   createColumnHelper,
   getPaginationRowModel,
 } from '@tanstack/react-table';
-import { Outlet } from "react-router-dom";
 import LogoutForm from "./LogoutForm";
 
 interface UserData {

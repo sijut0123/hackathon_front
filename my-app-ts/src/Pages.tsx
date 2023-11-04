@@ -1,12 +1,9 @@
+import React from 'react';
 import Home from './routes/home';
 import NoMatch from './routes/NoMatch';
-import Posts from './routes/posts';
-import Post from './routes/post';
-import PostIndex from './routes/postindex';
 import { Routes, Route, Link, NavLink, useResolvedPath, useMatch } from 'react-router-dom';
 import './App.css';
 import LoginForm from './routes/LoginForm';
-import LogoutForm from './routes/LogoutForm';
 
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -33,14 +30,9 @@ function CustomLink({ children, to }: {children: React.ReactNode, to: string}) {
 function Pages() {
   return (
     <div>
-      <h1>Hello React Router v6</h1>
       <Routes>
             <Route path="/" element={<LoginForm />} />
             <Route path="/home" element={<Layout><Home /></Layout>} />
-            <Route path="/posts" element={<Layout><Posts /></Layout>}>
-                <Route index element={<PostIndex />} />
-                <Route path=":postId" element={<Post />} />
-            </Route>
             <Route path="*" element={<NoMatch />} />
       </Routes>
     </div> 
