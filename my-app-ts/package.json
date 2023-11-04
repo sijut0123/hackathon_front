@@ -2,6 +2,7 @@
   "name": "my-app-ts",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
     "@tanstack/react-table": "^8.10.7",
