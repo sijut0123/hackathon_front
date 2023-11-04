@@ -3,7 +3,7 @@ import Home from './routes/home';
 import NoMatch from './routes/NoMatch';
 import { Routes, Route, Link, useResolvedPath, useMatch } from 'react-router-dom';
 import './App.css';
-import LoginForm from './routes/LoginForm';
+// import LoginForm from './routes/LoginForm';
 
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -31,8 +31,9 @@ function Pages() {
   return (
     <div>
       <Routes>
-            <Route path="/" element={<LoginForm />} />
             <Route path="/home" element={<Layout><Home /></Layout>} />
+            {/* <Route path="/" element={<LoginForm />} />
+            <Route path="/home" element={<Layout><Home /></Layout>} /> */}
             <Route path="*" element={<NoMatch />} />
       </Routes>
     </div> 

@@ -9,7 +9,7 @@ import {
   createColumnHelper,
   getPaginationRowModel,
 } from '@tanstack/react-table';
-import LogoutForm from "./LogoutForm";
+// import LogoutForm from "./LogoutForm";
 
 interface UserData {
   category : string;
@@ -119,7 +119,7 @@ function Home() {
         <div className="border">
           <p className="p">User Register </p>
         </div>
-        <LogoutForm />
+        {/* <LogoutForm /> */}
       </header>
         <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit}>
           <div className="block_1">
