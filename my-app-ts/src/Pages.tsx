@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from './routes/home';
 import NoMatch from './routes/NoMatch';
-import { Routes, Route, Link, NavLink, useResolvedPath, useMatch } from 'react-router-dom';
+import { Routes, Route, Link, useResolvedPath, useMatch } from 'react-router-dom';
 import './App.css';
 import LoginForm from './routes/LoginForm';
 

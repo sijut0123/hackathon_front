@@ -6,7 +6,7 @@ import { getAuth } from "firebase/auth";
 
 console.log("api", process.env.REACT_APP_API_KEY);
 // Your web app's Firebase configuration
-const firebaseConfig = {
+export const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
     authDomain: process.env.REACT_APP_AUTH_DOMAIN,
     projectId: process.env.REACT_APP_PROJECT_ID,
