@@ -11,6 +11,8 @@ import {
 } from '@tanstack/react-table';
 import LogoutForm from "./LogoutForm";
 import PersistentDrawerLeft from "./PersistentDrawerLeft";
+import { Sidemenu } from "./sidemenu";
+import { PersistentDrawerMainContent } from "./persistentDrawerMainContent";
 
 interface UserData {
   category : string;
@@ -116,7 +118,10 @@ function Home() {
 
   return (
     <div className="App">
-      <PersistentDrawerLeft />
+      <PersistentDrawerLeft
+        sidemenu={<Sidemenu/>}
+        mainContent={<PersistentDrawerMainContent/>}
+      />
       <header className="App-header">
         <div className="border">
           <p className="p">User Register </p>
