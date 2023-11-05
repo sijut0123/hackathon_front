@@ -2,21 +2,12 @@ import React, { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
-import { fireAuth } from '../firebase';
 
 const LoginForm: React.FC = () => {
   const [userName, setUserName] = useState<string | null>(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
-  // stateとしてログイン状態を管理する。ログインしていないときはnullになる。
-  const [loginUser, setLoginUser] = useState(fireAuth.currentUser);
-
-  // ログイン状態を監視して、stateをリアルタイムで更新する
-  onAuthStateChanged(fireAuth, user => {
-    setLoginUser(user);
-  });
 
   const createuser = () => {
     const auth = getAuth();

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { onAuthStateChanged } from 'firebase/auth';
 import { fireAuth } from './firebase';
@@ -7,13 +7,15 @@ import Pages from './Pages'
 import { BrowserRouter } from 'react-router-dom';
 
 function App() {
-  // // stateとしてログイン状態を管理する。ログインしていないときはnullになる。
-  // const [loginUser, setLoginUser] = useState(fireAuth.currentUser);
+  // stateとしてログイン状態を管理する。ログインしていないときはnullになる。
+  const [loginUser, setLoginUser] = useState(fireAuth.currentUser);
 
-  // // ログイン状態を監視して、stateをリアルタイムで更新する
-  // onAuthStateChanged(fireAuth, user => {
-  //   setLoginUser(user);
-  // });
+  // ログイン状態を監視して、stateをリアルタイムで更新する
+  useEffect(() => {
+    onAuthStateChanged(fireAuth, (user) => {
+    setLoginUser(user);
+    });
+    }, []);
 
   const rootElement = document.getElementById('root');
   if (rootElement) {
