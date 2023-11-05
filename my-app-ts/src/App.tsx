@@ -7,8 +7,8 @@ import Pages from './Pages'
 import { BrowserRouter } from 'react-router-dom';
 
 function App() {
-  // stateとしてログイン状態を管理する。ログインしていないときはnullになる。
-  const [loginUser, setLoginUser] = useState(fireAuth.currentUser);
+  // // stateとしてログイン状態を管理する。ログインしていないときはnullになる。
+  // const [loginUser, setLoginUser] = useState(fireAuth.currentUser);
 
   // // ログイン状態を監視して、stateをリアルタイムで更新する
   // onAuthStateChanged(fireAuth, user => {
