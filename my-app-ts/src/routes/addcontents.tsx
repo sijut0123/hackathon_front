@@ -99,11 +99,7 @@ return (
             <label>Category: <Select
               options={options}
               defaultValue={category}
-              onChange={(value) => {
-                if (value) {
-                  setCategory(value);
-                }
-              }}
+              onChange={(e: any) => setCategory(e.target.value)}
             />
             </label>
           </div>
