@@ -17,7 +17,6 @@ function AddContents() {
 
 const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault()
-    const navigate = useNavigate();
 
     try{
       const response = await fetch(
@@ -37,7 +36,6 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
       );
       if (response.status === 200) {
         fetchUsers();
-        navigate("/home")
       } else {
         console.error("POST request failed")
       }
@@ -79,11 +77,14 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
     fetchUsers();
   },[]);
 
+  const navigate = useNavigate()
+  const movetohome = () => {
+    navigate("/home");
+  }
+
 return (
     <div className="App">
-      <header className="App-header">
-      </header>
-        <form style={{ display: "flex", flexDirection: "column" }} >
+        <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit}>
           <div className="block_1">
             <label>Category: <input
               type={"text"}
@@ -116,7 +117,7 @@ return (
             className="txt_1"
           ></input></label>
           </div>
-          <button type={"submit"} className="block_1" onClick={handleSubmit}>POST</button>
+          <button type={"submit"} className="block_1" onClick={movetohome} >POST</button>
         </form>
     </div>
 );
