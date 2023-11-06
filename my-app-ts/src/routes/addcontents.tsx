@@ -91,6 +91,8 @@ function AddContents() {
     navigate("/home");
   }
 
+  console.log(selectedValue);
+  console.log(category);
 return (
     <div className="App">
         <header className="App-header">
@@ -102,8 +104,8 @@ return (
               value={selectedValue}
               onChange={(value) => {
                 if (value) {
-                  setSelectedValue(value);
                   setCategory(value.value);
+                  setSelectedValue(value);
                 }
                 }}
               />
