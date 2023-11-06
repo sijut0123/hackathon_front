@@ -13,6 +13,7 @@ import LogoutForm from "./LogoutForm";
 import PersistentDrawerLeft from "./PersistentDrawerLeft";
 import { Sidemenu } from "./sidemenu";
 import { PersistentDrawerMainContent } from "./persistentDrawerMainContent";
+import { useNavigate } from "react-router-dom";
 
 interface UserData {
   category : string;
@@ -116,6 +117,11 @@ function Home() {
     getPaginationRowModel: getPaginationRowModel(),
   });
 
+  const navigate = useNavigate()
+  const movetoaddcontents = () => {
+    navigate("/addcontents");
+  }
+
   return (
     <div className="App">
       <PersistentDrawerLeft
@@ -125,6 +131,13 @@ function Home() {
       <header className="App-header">
         <div className="border">
           <p className="p">User Register </p>
+        </div>
+        <div>
+          <>
+          <button onClick={movetoaddcontents}>
+              新規追加
+          </button>
+          </>
         </div>
         <LogoutForm />
       </header>

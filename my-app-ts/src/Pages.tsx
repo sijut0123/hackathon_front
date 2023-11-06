@@ -4,6 +4,7 @@ import NoMatch from './routes/NoMatch';
 import { Routes, Route, Link, useResolvedPath, useMatch } from 'react-router-dom';
 import './App.css';
 import LoginForm from './routes/LoginForm';
+import AddContents from './routes/addcontents';
 
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -33,6 +34,7 @@ function Pages() {
       <Routes>
             <Route path="/" element={<LoginForm />} />
             <Route path="/home" element={<Layout><Home /></Layout>} />
+            <Route path="/addcontents" element={<AddContents />} />
             <Route path="*" element={<NoMatch />} />
       </Routes>
     </div> 
