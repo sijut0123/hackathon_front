@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface UserData {
     category : string;
@@ -16,6 +17,7 @@ function AddContents() {
 
 const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault()
+    const navigate = useNavigate();
 
     try{
       const response = await fetch(
@@ -35,6 +37,7 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
       );
       if (response.status === 200) {
         fetchUsers();
+        navigate("/home")
       } else {
         console.error("POST request failed")
       }
@@ -79,8 +82,6 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
 return (
     <div className="App">
       <header className="App-header">
-        <div className="border">
-        </div>
       </header>
         <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit}>
           <div className="block_1">
