@@ -100,7 +100,9 @@ return (
               options={options}
               defaultValue={category}
               onChange={(value) => {
-              value ? setCategory(value) : null;
+                if (value) {
+                  setCategory(value);
+                }
               }}
             />
             </label>
