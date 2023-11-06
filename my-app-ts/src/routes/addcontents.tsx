@@ -84,6 +84,8 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
 
 return (
     <div className="App">
+        <header className="App-header">
+      </header>
         <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit}>
           <div className="block_1">
             <label>Category: <input
