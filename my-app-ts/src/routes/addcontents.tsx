@@ -16,11 +16,12 @@ const options = [
 ];
 
 function AddContents() {
-    const [category, setCategory] = useState(options[0]);
+    const [category, setCategory] = useState<string>("");
     const [title, setTitle] = useState<string>("");
     const [body, setBody] = useState<string>("");
     const [url, setUrl] = useState<string>("");
     const [userData, setUserData] = useState<UserData[]>([]);
+    const [selectedValue, setSelectedValue] = useState(options[0]);
 
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
       e.preventDefault()
@@ -47,7 +48,7 @@ function AddContents() {
           console.error("POST request failed")
         }
   
-        setCategory(options[0]);
+        setCategory("");
         setBody("");
         setTitle("");
         setUrl("");
@@ -98,9 +99,14 @@ return (
           <div className="block_1">
             <label>Category: <Select
               options={options}
-              defaultValue={category}
-              onChange={(e: any) => setCategory(e.target.value)}
-            />
+              defaultValue={selectedValue}
+              onChange={(value) => {
+                if (value) {
+                  setSelectedValue(value);
+                  setCategory(value.value);
+                }
+                }}
+              />
             </label>
           </div>
           <div className="block_1">
