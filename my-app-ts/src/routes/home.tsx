@@ -90,9 +90,6 @@ function Home() {
         mainContent={<PersistentDrawerMainContent/>}
       />
       <header className="App-header">
-        <div className="border">
-          <p className="p">User Register </p>
-        </div>
         <div>
           <>
           <button onClick={movetoaddcontents}>
