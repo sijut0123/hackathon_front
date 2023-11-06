@@ -83,7 +83,7 @@ return (
     <div className="App">
       <header className="App-header">
       </header>
-        <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit}>
+        <form style={{ display: "flex", flexDirection: "column" }} >
           <div className="block_1">
             <label>Category: <input
               type={"text"}
@@ -116,7 +116,7 @@ return (
             className="txt_1"
           ></input></label>
           </div>
-          <button type={"submit"} className="block_1">POST</button>
+          <button type={"submit"} className="block_1" onClick={handleSubmit}>POST</button>
         </form>
     </div>
 );
