@@ -99,7 +99,7 @@ return (
           <div className="block_1">
             <label>Category: <Select
               options={options}
-              defaultValue={selectedValue}
+              value={selectedValue}
               onChange={(value) => {
                 if (value) {
                   setSelectedValue(value);
