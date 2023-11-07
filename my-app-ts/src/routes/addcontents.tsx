@@ -7,7 +7,7 @@ interface UserData {
     category : string;
     title : string;
     body : string;
-    date : string;
+    datetime_column : string;
   }
 
 const options = [
@@ -21,7 +21,7 @@ function AddContents() {
     const [category, setCategory] = useState<string>("");
     const [title, setTitle] = useState<string>("");
     const [body, setBody] = useState<string>("");
-    const [date, setDate] = useState<string>("");
+    const [datetime_column, setDatetime_column] = useState<string>("");
     const [userData, setUserData] = useState<UserData[]>([]);
     const [selectedValue, setSelectedValue] = useState(options[0]);
 
@@ -41,7 +41,7 @@ function AddContents() {
               category,
               title,
               body,
-              date,
+              datetime_column,
             }),
           }
         );
@@ -55,7 +55,7 @@ function AddContents() {
         setCategory("");
         setBody("");
         setTitle("");
-        setDate("");
+        setDatetime_column("");
   
       } catch (err) {
         console.error(err)
@@ -141,8 +141,8 @@ return (
           <div className="block_1">
           <label>URL: <input 
             type={"text"}
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
+            value={datetime_column}
+            onChange={(e) => setDatetime_column(e.target.value)}
             className="txt_1"
           ></input></label>
           </div>

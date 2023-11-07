@@ -20,7 +20,7 @@ interface UserData {
   category : string;
   title : string;
   body : string;
-  date : string;
+  datetime_column : string;
 }
 
 function Home() {
@@ -70,7 +70,7 @@ function Home() {
       header: 'Body',
       cell: (props) => props.getValue().toUpperCase(),
     }),
-    columnHelper.accessor('date', {
+    columnHelper.accessor('datetime_column', {
       header: () => 'Date',
     }),
   ];
