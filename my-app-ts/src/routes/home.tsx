@@ -16,10 +16,11 @@ import { PersistentDrawerMainContent } from "./persistentDrawerMainContent";
 import { useNavigate } from "react-router-dom";
 
 interface UserData {
+  curriculum : string;
   category : string;
   title : string;
   body : string;
-  url : string;
+  date : string;
 }
 
 function Home() {
@@ -56,6 +57,9 @@ function Home() {
   const columnHelper = createColumnHelper<UserData>();
 
   const columns = [
+    columnHelper.accessor('curriculum',{
+      header:"Curriculum",
+    }),
     columnHelper.accessor('category', {
       header: 'Category',
     }),
@@ -66,8 +70,8 @@ function Home() {
       header: 'Body',
       cell: (props) => props.getValue().toUpperCase(),
     }),
-    columnHelper.accessor('url', {
-      header: () => 'Url',
+    columnHelper.accessor('date', {
+      header: () => 'Date',
     }),
   ];
 

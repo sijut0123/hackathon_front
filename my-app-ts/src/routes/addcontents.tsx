@@ -3,10 +3,11 @@ import { useNavigate } from "react-router-dom";
 import Select from "react-select";
 
 interface UserData {
+    curriculum :string;
     category : string;
     title : string;
     body : string;
-    url : string;
+    date : string;
   }
 
 const options = [
@@ -16,10 +17,11 @@ const options = [
 ];
 
 function AddContents() {
+    const [curriculum, setCurriculum] = useState<string>("");
     const [category, setCategory] = useState<string>("");
     const [title, setTitle] = useState<string>("");
     const [body, setBody] = useState<string>("");
-    const [url, setUrl] = useState<string>("");
+    const [date, setDate] = useState<string>("");
     const [userData, setUserData] = useState<UserData[]>([]);
     const [selectedValue, setSelectedValue] = useState(options[0]);
 
@@ -35,10 +37,11 @@ function AddContents() {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
+              curriculum,
               category,
               title,
               body,
-              url,
+              date,
             }),
           }
         );
@@ -47,11 +50,12 @@ function AddContents() {
         } else {
           console.error("POST request failed")
         }
-  
+
+        setCurriculum("");
         setCategory("");
         setBody("");
         setTitle("");
-        setUrl("");
+        setDate("");
   
       } catch (err) {
         console.error(err)
@@ -97,14 +101,22 @@ return (
       </header>
         <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit}>
           <div className="block_1">
+          <label>Title: <input 
+            type={"text"}
+            value={curriculum}
+            onChange={(e) => setCurriculum(e.target.value)}
+            className="txt_1"
+          ></input></label>
+          </div>
+          <div className="block_1">
             <label>Category: <Select
               options={options}
               value={selectedValue}
-              onChange={(value) => {
-                if (value) {
-                  setCategory(value.value);
-                  setSelectedValue(value);
-                  console.log(value);
+              onChange={(e) => {
+                if (e) {
+                  setCategory(e.value);
+                  setSelectedValue(e);
+                  console.log(e);
                 }
                 }}
               />
@@ -129,8 +141,8 @@ return (
           <div className="block_1">
           <label>URL: <input 
             type={"text"}
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
             className="txt_1"
           ></input></label>
           </div>
