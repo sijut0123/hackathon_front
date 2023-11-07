@@ -134,6 +134,14 @@ return (
             className="txt_1"
           ></input></label>
           </div>
+          <div className="block_1">
+          <label>Time: <input 
+            type={"text"}
+            value={datetime_column}
+            onChange={(e) => setDatetime_column(MCNavigation())}
+            className="txt_1"
+          ></input></label>
+          </div>
           <button type={"submit"} className="block_1" onClick={movetohome} >POST</button>
         </form>
     </div>
