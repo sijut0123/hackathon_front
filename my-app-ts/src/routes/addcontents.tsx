@@ -46,8 +46,9 @@ function AddContents() {
         );
         if (response.status === 200) {
           fetchUsers();
+          console.log("POST request sucess");
         } else {
-          console.error("POST request failed")
+          console.error("POST request failed");
         }
 
         setCurriculum("");
