@@ -91,8 +91,6 @@ function AddContents() {
     navigate("/home");
   }
 
-  console.log(selectedValue);
-  console.log(category);
 return (
     <div className="App">
         <header className="App-header">
@@ -106,6 +104,7 @@ return (
                 if (value) {
                   setCategory(value.value);
                   setSelectedValue(value);
+                  console.log(value);
                 }
                 }}
               />
