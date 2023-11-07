@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
-import MCNavigation from "./getdate"
 
 interface UserData {
     curriculum :string;
@@ -95,15 +94,14 @@ function AddContents() {
     navigate("/home");
   }
 
-  const handlechange = (e:any) => {
-    setCurriculum(e.label)
-  }
+  // const handlechange = (e:any) => {
+  //   setCurriculum(e.label)
+  // }
 return (
     <div className="App">
         <header className="App-header">
       </header>
         <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit}>
-        
           <div className="block_1">
           <label>Curriculum: <input 
             type={"text"}
