@@ -103,11 +103,14 @@ return (
         <header className="App-header">
       </header>
         <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit}>
+        
           <div className="block_1">
-            <Select
-              options={curriculums}
-              onChange={handlechange}
-            />
+          <label>Curriculum: <input 
+            type={"text"}
+            value={curriculum}
+            onChange={(e) => setCurriculum(e.target.value)}
+            className="txt_1"
+          ></input></label>
           </div>
           <div className="block_1">
           <label>Category: <input 
