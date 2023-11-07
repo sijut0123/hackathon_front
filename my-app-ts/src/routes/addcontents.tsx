@@ -3,18 +3,18 @@ import { useNavigate } from "react-router-dom";
 import Select from "react-select";
 
 interface UserData {
-    curriculum :string;
+    curriculum : string;
     category : string;
     title : string;
     body : string;
     datetime_column : string;
   }
 
-const curriculums = [
-  {value: 'oscommand', label: 'OSコマンド(とシェル)'},
-  {value:'git', label:'Git'},
-  {value:'github', label:'Github'}
-];
+// const curriculums = [
+//   {value: 'oscommand', label: 'OSコマンド(とシェル)'},
+//   {value:'git', label:'Git'},
+//   {value:'github', label:'Github'}
+// ];
 
 function AddContents() {
     const [curriculum, setCurriculum] = useState<string>("");
@@ -97,6 +97,7 @@ function AddContents() {
   // const handlechange = (e:any) => {
   //   setCurriculum(e.label)
   // }
+  console.log(curriculum, category, title, body, datetime_column);
 return (
     <div className="App">
         <header className="App-header">
