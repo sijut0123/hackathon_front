@@ -11,10 +11,10 @@ interface UserData {
     datetime_column : string;
   }
 
-const options = [
-  { value: "document", label: "技術書" },
-  { value: "blog", label: "技術ブログ" },
-  { value: "movie", label: "技術系動画" },
+const curriculums = [
+  {value: 'oscommand', label: 'OSコマンド(とシェル)'},
+  {value:'git', label:'Git'},
+  {value:'github', label:'Github'}
 ];
 
 function AddContents() {
@@ -24,7 +24,6 @@ function AddContents() {
     const [body, setBody] = useState<string>("");
     const [datetime_column, setDatetime_column] = useState<string>("");
     const [userData, setUserData] = useState<UserData[]>([]);
-    const [selectedValue, setSelectedValue] = useState(options[0]);
 
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
       e.preventDefault()
@@ -94,21 +93,21 @@ function AddContents() {
   const navigate = useNavigate()
   const movetohome = () => {
     navigate("/home");
-    setDatetime_column(MCNavigation());
   }
 
+  const handlechange = (e:any) => {
+    setCurriculum(e.label)
+  }
 return (
     <div className="App">
         <header className="App-header">
       </header>
         <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit}>
           <div className="block_1">
-          <label>Curriculum: <input 
-            type={"text"}
-            value={curriculum}
-            onChange={(e) => setCurriculum(e.target.value)}
-            className="txt_1"
-          ></input></label>
+            <Select
+              options={curriculums}
+              onChange={handlechange}
+            />
           </div>
           <div className="block_1">
           <label>Category: <input 
@@ -138,7 +137,7 @@ return (
           <label>Time: <input 
             type={"text"}
             value={datetime_column}
-            onChange={(e) => setDatetime_column(MCNavigation())}
+            onChange={(e) => setDatetime_column(e.target.value)}
             className="txt_1"
           ></input></label>
           </div>
