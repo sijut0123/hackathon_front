@@ -90,10 +90,10 @@ function AddContents() {
     fetchUsers();
   },[]);
 
-  // const navigate = useNavigate()
-  // const movetohome = () => {
-  //   navigate("/home");
-  // }
+  const navigate = useNavigate()
+  const movetohome = () => {
+    navigate("/home");
+  }
 
   // const handlechange = (e:any) => {
   //   setCurriculum(e.label)
@@ -146,6 +146,7 @@ return (
           </div>
           <button type={"submit"} className="block_1">POST</button>
         </form>
+          <button type={"submit"} className="block_1" onClick={movetohome}>戻る</button>
     </div>
 );
 };
