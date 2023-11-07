@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
+import MCNavigation from "./getdate"
 
 interface UserData {
     curriculum :string;
@@ -93,6 +94,7 @@ function AddContents() {
   const navigate = useNavigate()
   const movetohome = () => {
     navigate("/home");
+    setDatetime_column(MCNavigation());
   }
 
 return (
@@ -101,7 +103,7 @@ return (
       </header>
         <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit}>
           <div className="block_1">
-          <label>Title: <input 
+          <label>Curriculum: <input 
             type={"text"}
             value={curriculum}
             onChange={(e) => setCurriculum(e.target.value)}
@@ -109,18 +111,12 @@ return (
           ></input></label>
           </div>
           <div className="block_1">
-            <label>Category: <Select
-              options={options}
-              value={selectedValue}
-              onChange={(e) => {
-                if (e) {
-                  setCategory(e.value);
-                  setSelectedValue(e);
-                  console.log(e);
-                }
-                }}
-              />
-            </label>
+          <label>Category: <input 
+            type={"text"}
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="txt_1"
+          ></input></label>
           </div>
           <div className="block_1">
           <label>Title: <input 
@@ -135,14 +131,6 @@ return (
             type={"text"}
             value={body}
             onChange={(e) => setBody(e.target.value)}
-            className="txt_1"
-          ></input></label>
-          </div>
-          <div className="block_1">
-          <label>URL: <input 
-            type={"text"}
-            value={datetime_column}
-            onChange={(e) => setDatetime_column(e.target.value)}
             className="txt_1"
           ></input></label>
           </div>
