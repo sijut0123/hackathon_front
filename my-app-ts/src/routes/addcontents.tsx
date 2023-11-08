@@ -71,7 +71,8 @@ function AddContents() {
         } else {
           console.error("POST request failed");
         }
-
+        
+        MCNavigation
         setCurriculum("");
         setCategory("");
         setBody("");
