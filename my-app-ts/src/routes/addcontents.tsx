@@ -113,15 +113,15 @@ function AddContents() {
   const navigate = useNavigate()
   const movetohome = () => {
     navigate("/home");
-  }
+  };
 
   const handlechangecurriculum = (e:any) => {
     setCurriculum(e.label)
-  }
+  };
 
   const handlechangecategory = (e:any) => {
     setCategory(e.label)
-  }
+  };
 
 return (
     <div className="App">
@@ -134,7 +134,7 @@ return (
             onChange={handlechangecurriculum}
           />
           </div>
-          <div className="block_1">
+          <div style={{ width: "600px", margin: "50px" }}>
           <Select
             options={categories}
             onChange={handlechangecategory}
