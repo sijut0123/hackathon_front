@@ -76,7 +76,7 @@ function AddContents() {
         setCategory("");
         setBody("");
         setTitle("");
-        setDatetime_column(MCNavigation);
+        setDatetime_column("");
   
       } catch (err) {
         console.error(err)
@@ -124,6 +124,12 @@ function AddContents() {
     setCategory(e.label);
   };
 
+  const handlechangetime = (e:any) => {
+    setDatetime_column(MCNavigation)
+  };
+
+  console.log(MCNavigation);
+
 return (
     <div className="App">
         <header className="App-header">
@@ -156,6 +162,14 @@ return (
             type={"text"}
             value={body}
             onChange={(e) => setBody(e.target.value)}
+            className="txt_1"
+          ></input></label>
+          </div>
+          <div className="block_1">
+          <label>Time: <input 
+            type={"text"}
+            value={datetime_column}
+            onChange={(e) => setDatetime_column(e.target.value)}
             className="txt_1"
           ></input></label>
           </div>
