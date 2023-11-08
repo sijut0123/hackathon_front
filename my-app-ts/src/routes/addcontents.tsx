@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
+import MCNavigation from "./getdate";
 
 interface UserData {
     curriculum : string;
@@ -75,7 +76,7 @@ function AddContents() {
         setCategory("");
         setBody("");
         setTitle("");
-        setDatetime_column("");
+        setDatetime_column(MCNavigation);
   
       } catch (err) {
         console.error(err)
@@ -155,14 +156,6 @@ return (
             type={"text"}
             value={body}
             onChange={(e) => setBody(e.target.value)}
-            className="txt_1"
-          ></input></label>
-          </div>
-          <div className="block_1">
-          <label>Time: <input 
-            type={"text"}
-            value={datetime_column}
-            onChange={(e) => setDatetime_column(e.target.value)}
             className="txt_1"
           ></input></label>
           </div>
