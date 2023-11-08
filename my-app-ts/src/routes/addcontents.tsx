@@ -10,11 +10,11 @@ interface UserData {
     datetime_column : string;
   }
 
-// const curriculums = [
-//   {value: 'oscommand', label: 'OSコマンド(とシェル)'},
-//   {value:'git', label:'Git'},
-//   {value:'github', label:'Github'}
-// ];
+const curriculums = [
+  {value: 'oscommand', label: 'OSコマンド(とシェル)'},
+  {value:'git', label:'Git'},
+  {value:'github', label:'Github'}
+];
 
 function AddContents() {
     const [curriculum, setCurriculum] = useState<string>("");
@@ -95,15 +95,20 @@ function AddContents() {
     navigate("/home");
   }
 
-  // const handlechange = (e:any) => {
-  //   setCurriculum(e.label)
-  // }
-  console.log(curriculum, category, title, body, datetime_column);
+  const handlechange = (e:any) => {
+    setCurriculum(e.label)
+  }
 return (
     <div className="App">
         <header className="App-header">
       </header>
         <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit}>
+          <div style={{ width: "600px", margin: "50px" }}>
+          <Select
+            options={curriculums}
+            onChange={handlechange}
+          />
+          </div>
           <div className="block_1">
           <label>Curriculum: <input 
             type={"text"}
