@@ -71,8 +71,7 @@ function AddContents() {
         } else {
           console.error("POST request failed");
         }
-        
-        MCNavigation
+
         setCurriculum("");
         setCategory("");
         setBody("");
@@ -143,7 +142,7 @@ function AddContents() {
   setDatetime_column(time);
 }
 
-console.log(datetime_column);
+console.log(datetime_column)
 
 return (
     <div className="App">
@@ -188,7 +187,7 @@ return (
             className="txt_1"
           ></input></label>
           </div>
-          <button type={"submit"} className="block_1">POST</button>
+          <button type={"submit"} className="block_1" onClick={MCNavigation}>POST</button>
         </form>
           <button type={"submit"} className="block_1" onClick={movetohome}>戻る</button>
     </div>
