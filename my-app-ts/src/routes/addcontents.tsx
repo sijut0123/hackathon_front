@@ -116,11 +116,16 @@ function AddContents() {
   };
 
   const handlechangecurriculum = (e:any) => {
-    setCurriculum(e.label)
+    setCurriculum(e.label);
   };
 
   const handlechangecategory = (e:any) => {
-    setCategory(e.label)
+    setCategory(e.label);
+  };
+
+  const initialization = (e:any) => {
+    setCurriculum("");
+    setCategory("");
   };
 
 return (
@@ -134,7 +139,7 @@ return (
             onChange={handlechangecurriculum}
           />
           </div>
-          <div style={{ width: "600px", margin: "50px" }}>
+          <div className="block_1">
           <Select
             options={categories}
             onChange={handlechangecategory}
@@ -164,7 +169,7 @@ return (
             className="txt_1"
           ></input></label>
           </div>
-          <button type={"submit"} className="block_1">POST</button>
+          <button type={"submit"} className="block_1" onClick={initialization}>POST</button>
         </form>
           <button type={"submit"} className="block_1" onClick={movetohome}>戻る</button>
     </div>
