@@ -13,7 +13,27 @@ interface UserData {
 const curriculums = [
   {value: 'oscommand', label: 'OSコマンド(とシェル)'},
   {value:'git', label:'Git'},
-  {value:'github', label:'Github'}
+  {value:'github', label:'Github'},
+  {value:'html&css', label:'HTML & CSS'},
+  {value:'javascript', label:'JavaScript'},
+  {value:'react', label:'React'},
+  {value:'typescript', label:'React x Tyepscript'},
+  {value:'sql', label:'SQL'},
+  {value:'docker', label:'Docker'},
+  {value:'go', label:'Go'},
+  {value:'http server', label:'HTTP Server(Go)'},
+  {value:'rdbms', label:'RDBMS(MySQL)への接続(Go)'},
+  {value:'unittest', label:'Unit Test(Go)'},
+  {value:'frontend & backend', label:'フロントエンドとバックエンドの接続'},
+  {value:'ci', label:'CI(Continuous Integration'},
+  {value:'cd', label:'CD(Continuous Delivery/Deployment)'},
+  {value:'authentication', label:'認証'}
+];
+
+const categories = [
+  {value:'document', label:'技術書'},
+  {value:'blog', label:'技術ブログ'},
+  {value:'movie', lable:'技術系動画'}
 ];
 
 function AddContents() {
@@ -95,9 +115,14 @@ function AddContents() {
     navigate("/home");
   }
 
-  const handlechange = (e:any) => {
+  const handlechangecurriculum = (e:any) => {
     setCurriculum(e.label)
   }
+
+  const handlechangecategory = (e:any) => {
+    setCategory(e.label)
+  }
+
 return (
     <div className="App">
         <header className="App-header">
@@ -106,16 +131,14 @@ return (
           <div className="block_1">
           <Select
             options={curriculums}
-            onChange={handlechange}
+            onChange={handlechangecurriculum}
           />
           </div>
           <div className="block_1">
-          <label>Category: <input 
-            type={"text"}
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="txt_1"
-          ></input></label>
+          <Select
+            options={categories}
+            onChange={handlechangecategory}
+          />
           </div>
           <div className="block_1">
           <label>Title: <input 
