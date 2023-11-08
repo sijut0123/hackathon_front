@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 
 const MCNavigation = () => {
     const [time, setTime] = useState("")
@@ -18,7 +18,7 @@ const MCNavigation = () => {
 
 
     return (
-        time   
+        <p>{time}</p> 
     );
 }
  

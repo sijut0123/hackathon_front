@@ -124,11 +124,25 @@ function AddContents() {
     setCategory(e.label);
   };
 
-  const handlechangetime = (e:any) => {
-    setDatetime_column(MCNavigation)
-  };
+  const MCNavigation = () => {
+    const [time, setTime] = useState("")
 
-  console.log(MCNavigation);
+    useEffect(() => {
+        setInterval(() => {
+        let d = new Date();
+        let year = d.getFullYear();
+        let month = d.getMonth() + 1;
+        let day = d.getDate();
+        let hour = d.getHours().toString().padStart(2, '0');
+        let minute = d.getMinutes().toString().padStart(2, '0');
+        setTime(year + '年' + month + '月' + day + '日' + hour + ':' + minute);
+        });
+
+    },[]);
+  setDatetime_column(time);
+}
+
+console.log(datetime_column);
 
 return (
     <div className="App">
