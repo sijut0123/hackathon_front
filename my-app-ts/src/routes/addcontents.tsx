@@ -33,7 +33,7 @@ const curriculums = [
 const categories = [
   {value:'document', label:'技術書'},
   {value:'blog', label:'技術ブログ'},
-  {value:'movie', lable:'技術系動画'}
+  {value:'movie', label:'技術系動画'}
 ];
 
 function AddContents() {
@@ -123,11 +123,6 @@ function AddContents() {
     setCategory(e.label);
   };
 
-  const initialization = (e:any) => {
-    setCurriculum("");
-    setCategory("");
-  };
-
 return (
     <div className="App">
         <header className="App-header">
@@ -136,12 +131,14 @@ return (
           <div className="block_1">
           <Select
             options={curriculums}
+            defaultValue={{label:'Select...', value:'default'}}
             onChange={handlechangecurriculum}
           />
           </div>
           <div className="block_1">
           <Select
             options={categories}
+            defaultValue={{label:'Select...', value:'default'}}
             onChange={handlechangecategory}
           />
           </div>
@@ -169,7 +166,7 @@ return (
             className="txt_1"
           ></input></label>
           </div>
-          <button type={"submit"} className="block_1" onClick={initialization}>POST</button>
+          <button type={"submit"} className="block_1">POST</button>
         </form>
           <button type={"submit"} className="block_1" onClick={movetohome}>戻る</button>
     </div>
