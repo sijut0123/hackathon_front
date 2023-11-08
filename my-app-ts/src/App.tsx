@@ -5,6 +5,8 @@ import { fireAuth } from './firebase';
 import ReactDOM from 'react-dom/client';
 import Pages from './Pages'
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store';
 
 function App() {
   // stateとしてログイン状態を管理する。ログインしていないときはnullになる。
@@ -20,11 +22,13 @@ function App() {
   const rootElement = document.getElementById('root');
   if (rootElement) {
     ReactDOM.createRoot(rootElement).render(
+      <Provider store={store}>
       <React.StrictMode>
         <BrowserRouter>
           <Pages />
         </BrowserRouter>
       </React.StrictMode>
+      </Provider>
     );
   }
   

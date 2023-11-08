@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
-import MCNavigation from "./getdate";
+import store from "../store";
 
 interface UserData {
     curriculum : string;
@@ -118,29 +118,13 @@ function AddContents() {
 
   const handlechangecurriculum = (e:any) => {
     setCurriculum(e.label);
+    const time = (store.getState().year + '年' + store.getState().month + '月' + store.getState().day + '日' + store.getState().hour + ':' + store.getState().minute);
+    setDatetime_column(time)
   };
 
   const handlechangecategory = (e:any) => {
     setCategory(e.label);
   };
-
-  const MCNavigation = () => {
-    const [time, setTime] = useState("")
-
-    useEffect(() => {
-        setInterval(() => {
-        let d = new Date();
-        let year = d.getFullYear();
-        let month = d.getMonth() + 1;
-        let day = d.getDate();
-        let hour = d.getHours().toString().padStart(2, '0');
-        let minute = d.getMinutes().toString().padStart(2, '0');
-        setTime(year + '年' + month + '月' + day + '日' + hour + ':' + minute);
-        });
-
-    },[]);
-  setDatetime_column(time);
-}
 
 console.log(datetime_column)
 
@@ -179,15 +163,7 @@ return (
             className="txt_1"
           ></input></label>
           </div>
-          <div className="block_1">
-          <label>Time: <input 
-            type={"text"}
-            value={datetime_column}
-            onChange={(e) => setDatetime_column(e.target.value)}
-            className="txt_1"
-          ></input></label>
-          </div>
-          <button type={"submit"} className="block_1" onClick={MCNavigation}>POST</button>
+          <button type={"submit"} className="block_1">POST</button>
         </form>
           <button type={"submit"} className="block_1" onClick={movetohome}>戻る</button>
     </div>
