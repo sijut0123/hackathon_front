@@ -22,7 +22,7 @@ const FetchUsers = async () => {
       console.error("GET request failed");
     };
   } catch (err) {
-    console.error(err)
+    console.error("@FetchUSer", err)
   };
 };
 
