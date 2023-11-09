@@ -12,6 +12,8 @@ const FetchUsers = async () => {
         },
       });
 
+      console.log(getResponse);
+
       if (getResponse.status === 200) {
         // GETリクエストの結果を処理
         const userData = await getResponse.json();
