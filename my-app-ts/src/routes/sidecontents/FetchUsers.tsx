@@ -1,4 +1,6 @@
-const FetchUsers = async () => {
+import { User } from "./persistentDrawerMainContent";
+
+const FetchUsers = async (setUserData: (userData: User[]) => void) => {
   let urlParamStr = window.location.pathname;
   urlParamStr = urlParamStr.substring(1);
 
@@ -14,10 +16,8 @@ const FetchUsers = async () => {
 
     if (getResponse.status === 200) {
       // GETリクエストの結果を処理
-      console.log("@FetchUser: try to parse JSON")
-      const userData = await getResponse.json();
-      console.log("@FetchUser: ", userData)
-      userData(userData);
+      const users = await getResponse.json() as User[];
+      setUserData(users);
       // userDataを適切に処理するコードをここに追加
     } else {
       // GETリクエストが失敗した場合の処理

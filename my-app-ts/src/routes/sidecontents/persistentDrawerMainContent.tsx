@@ -10,7 +10,7 @@ import {
 } from '@tanstack/react-table';
 import FetchUsers from "./FetchUsers";
 
-interface UserData {
+export type User = {
   curriculum : string;
   category : string;
   title : string;
@@ -19,14 +19,14 @@ interface UserData {
 }
 
 const PersistentDrawerMainContent = () => {
-  const [userData, setUserData] = useState<UserData[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
   const [pageSize, setPageSize] = useState<number>(30);
 
   useEffect(() => {
-    FetchUsers();
+    FetchUsers((user: User[]) => { setUsers(user) });
   },[]);
 
-  const columnHelper = createColumnHelper<UserData>();
+  const columnHelper = createColumnHelper<User>();
 
   const columns = [
     columnHelper.accessor('curriculum',{
@@ -48,7 +48,7 @@ const PersistentDrawerMainContent = () => {
   ];
 
   const table = useReactTable({
-    data: userData,
+    data: users,
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
