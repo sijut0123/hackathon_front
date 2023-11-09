@@ -14,7 +14,9 @@ const FetchUsers = async () => {
 
     if (getResponse.status === 200) {
       // GETリクエストの結果を処理
+      console.log("@FetchUser: try to parse JSON")
       const userData = await getResponse.json();
+      console.log("@FetchUser: ", userData)
       userData(userData);
       // userDataを適切に処理するコードをここに追加
     } else {
