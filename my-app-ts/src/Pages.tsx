@@ -35,7 +35,7 @@ function Pages() {
       <Routes>
             <Route path="/" element={<LoginForm />} />
             <Route path="/home" element={<Layout><Home /></Layout>} />
-            <Route path="/oscommand" element={<Oscommand />} />
+            <Route path="/OSコマンド(とシェル)" element={<Oscommand />} />
             <Route path="/addcontents" element={<AddContents />} />
             <Route path="*" element={<NoMatch />} />
       </Routes>
