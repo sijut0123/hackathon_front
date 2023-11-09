@@ -4,7 +4,7 @@ const useFetchUsers = async () => {
     const search = useLocation().search;
     const query = new URLSearchParams(search);
     try{
-      const getResponse = await fetch(`https://hackathon-backend-zjgwehekya-uc.a.run.app/user?${query}`, {
+      const getResponse = await fetch(`https://hackathon-backend-zjgwehekya-uc.a.run.app/user?curriculum=${query}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
