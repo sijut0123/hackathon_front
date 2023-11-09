@@ -1,5 +1,6 @@
 import React from 'react';
 import Home from './routes/home';
+import Oscommand from './routes/sidecontents/oscommand'
 import NoMatch from './routes/NoMatch';
 import { Routes, Route, Link, useResolvedPath, useMatch } from 'react-router-dom';
 import './App.css';
@@ -34,6 +35,7 @@ function Pages() {
       <Routes>
             <Route path="/" element={<LoginForm />} />
             <Route path="/home" element={<Layout><Home /></Layout>} />
+            <Route path="/oscommand" element={<Oscommand />} />
             <Route path="/addcontents" element={<AddContents />} />
             <Route path="*" element={<NoMatch />} />
       </Routes>

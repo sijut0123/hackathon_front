@@ -1,5 +1,4 @@
-import React from "react";
-import "./home.css";
+import './home.css';
 import { useState } from "react";
 import { useEffect } from "react";
 import {
@@ -10,9 +9,9 @@ import {
   getPaginationRowModel,
 } from '@tanstack/react-table';
 import LogoutForm from "./LogoutForm";
-import PersistentDrawerLeft from "./PersistentDrawerLeft";
-import { Sidemenu } from "./sidemenu";
-import { PersistentDrawerMainContent } from "./persistentDrawerMainContent";
+import PersistentDrawerLeft from "./sidecontents/PersistentDrawerLeft";
+import { Sidemenu } from "./sidecontents/sidemenu";
+import PersistentDrawerMainContent from "./sidecontents/persistentDrawerMainContent";
 import { useNavigate } from "react-router-dom";
 
 interface UserData {
@@ -103,87 +102,8 @@ function Home() {
         </div>
         <LogoutForm />
       </header>
-        <div style={{ margin: '2em' }}>
-      <h1>Posts List</h1>
-      <div>Page Size</div>
-        <select
-          value={pageSize}
-          onChange={(e) => {
-            table.setPageSize(parseInt(e.target.value));
-            setPageSize(parseInt(e.target.value));
-          }}
-        >
-          <option value={10}>10</option>
-          <option value={30}>30</option>
-          <option value={50}>50</option>
-          <option value={100}>100</option>
-        </select>
-        <div style={{ display: 'flex', marginBottom: '1em' }}>
-        <button
-            disabled={!table.getCanPreviousPage()}
-            onClick={() => table.previousPage()}
-        >
-            Privious
-        </button>
-        {Array.from({ length: table.getPageCount() }, (_, i) => i).map(
-        (index) => (
-            <div
-            key={index}
-            style={{
-              backgroundColor:
-                table.getState().pagination.pageIndex === index ? 'blue' : '',
-              color:
-                table.getState().pagination.pageIndex === index
-                  ? 'white'
-                  : 'black',
-              padding: '0 0.5em 0 0.5em',
-              margin: '0 0.2em 0 0.2em',
-              cursor: 'pointer',
-            }}
-            onClick={() => table.setPageIndex(index)}
-            >
-                {index + 1}
-            </div>
-        )
-    )}
-    <button
-    disabled={!table.getCanNextPage()}
-    onClick={() => table.nextPage()}
-    >
-    Next
-    </button>
-  </div>
-      <table>
-        <thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th key={header.id}>
-                  {flexRender(
-                    header.column.columnDef.header,
-                    header.getContext()
-                  )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {table
-            .getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
     </div>
-    </div>
-    );
-  }
+  );
+}
 
   export default Home;

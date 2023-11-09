@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Select from "react-select";
 import store from "../store";
 
@@ -125,8 +125,6 @@ function AddContents() {
   const handlechangecategory = (e:any) => {
     setCategory(e.label);
   };
-
-console.log(datetime_column)
 
 return (
     <div className="App">

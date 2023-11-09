@@ -1,5 +1,4 @@
 // 関連するコンポーネントのみimportのコードをデモコードからコピーしてくる
-import React from 'react';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
@@ -16,7 +15,7 @@ export function Sidemenu() {
     <>
       {/* 下記はデモコードのリスト部分 */}
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+        {['home', 'oscommand', 'Send email', 'Drafts'].map((text, index) => (
             <Link to={"/" + text}>
             <ListItem button key={text}>
                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
