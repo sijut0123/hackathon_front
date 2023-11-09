@@ -1,11 +1,11 @@
 import React from 'react';
 import Home from './routes/home';
-import Oscommand from './routes/sidecontents/oscommand'
 import NoMatch from './routes/NoMatch';
 import { Routes, Route, Link, useResolvedPath, useMatch } from 'react-router-dom';
 import './App.css';
 import LoginForm from './routes/LoginForm';
 import AddContents from './routes/addcontents';
+import Github from './routes/sidecontents/Github';
 
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -35,7 +35,7 @@ function Pages() {
       <Routes>
             <Route path="/" element={<LoginForm />} />
             <Route path="/home" element={<Layout><Home /></Layout>} />
-            <Route path="/OSコマンド(とシェル)" element={<Oscommand />} />
+            <Route path="/Github" element={<Github />} />
             <Route path="/addcontents" element={<AddContents />} />
             <Route path="*" element={<NoMatch />} />
       </Routes>

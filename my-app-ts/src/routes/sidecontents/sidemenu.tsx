@@ -15,7 +15,7 @@ export function Sidemenu() {
     <>
       {/* 下記はデモコードのリスト部分 */}
       <List>
-        {['home', 'OSコマンド(とシェル)', 'Send email', 'Drafts'].map((text, index) => (
+        {['home', 'Github', 'Send email', 'Drafts'].map((text, index) => (
             <Link to={"/" + text}>
             <ListItem button key={text}>
                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>

@@ -3,7 +3,7 @@ import PersistentDrawerLeft from "./PersistentDrawerLeft";
 import { Sidemenu } from "./sidemenu";
 import PersistentDrawerMainContent from "./persistentDrawerMainContent";
 
-function Oscommand() {
+function Github() {
   return (
     <div className="App">
       <PersistentDrawerLeft
@@ -14,4 +14,4 @@ function Oscommand() {
     );
   }
 
-  export default Oscommand;
+  export default Github;
