@@ -1,10 +1,11 @@
 import { useLocation } from "react-router-dom";
 
-const useFetchUsers = async () => {
-    const search = useLocation().search;
-    const query = new URLSearchParams(search);
-    try{
-      const getResponse = await fetch(`https://hackathon-backend-zjgwehekya-uc.a.run.app/user?curriculum=${query}`, {
+const FetchUsers = async () => {
+    let urlParamStr = window.location.pathname;
+    urlParamStr = urlParamStr.substring(1);
+
+        try{
+      const getResponse = await fetch(`https://hackathon-backend-zjgwehekya-uc.a.run.app/user?curriculum=${urlParamStr}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -25,4 +26,4 @@ const useFetchUsers = async () => {
     }
   };
 
-export default useFetchUsers;
+export default FetchUsers;

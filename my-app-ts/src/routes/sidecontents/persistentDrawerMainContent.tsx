@@ -8,8 +8,7 @@ import {
   createColumnHelper,
   getPaginationRowModel,
 } from '@tanstack/react-table';
-import { useNavigate } from "react-router-dom";
-import useFetchUsers from "./usefetchusers";
+import FetchUsers from "./FetchUsers";
 
 interface UserData {
   curriculum : string;
@@ -23,11 +22,9 @@ const PersistentDrawerMainContent = () => {
   const [userData, setUserData] = useState<UserData[]>([]);
   const [pageSize, setPageSize] = useState<number>(30);
 
-  // useEffect(() => {
-  //   useFetchUsers();
-  // },[]);
-
-  useFetchUsers();
+  useEffect(() => {
+    FetchUsers();
+  },[]);
 
   const columnHelper = createColumnHelper<UserData>();
 
@@ -56,12 +53,7 @@ const PersistentDrawerMainContent = () => {
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
   });
-
-  const navigate = useNavigate()
-  const movetoaddcontents = () => {
-    navigate("/addcontents");
-  }
-
+  
   return (
     <div className="App">
       <header className="App-header">
