@@ -11,7 +11,7 @@ const FetchUsers = async () => {
         "Content-Type": "application/json",
       },
     });
-
+    console.log(getResponse.status);
     const test = await getResponse.json();
     console.log(test);
 
