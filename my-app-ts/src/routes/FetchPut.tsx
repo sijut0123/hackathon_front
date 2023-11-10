@@ -36,7 +36,7 @@ function FetchPut() {
   const [body, setBody] = useState<string>("");
   const [datetime_column, setDatetime_column] = useState<string>("");
   let id = window.location.pathname;
-  id = id.substring(1);
+  id = id.substring(6);
   console.log(id);
   const fetchput = async () => {
   try {
