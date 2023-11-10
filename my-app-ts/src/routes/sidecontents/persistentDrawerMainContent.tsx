@@ -11,6 +11,7 @@ import {
 import FetchUsers from "../FetchUsers";
 import { Button, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import { FetchDelete } from "../FetchDelete";
+import { useNavigate } from "react-router-dom";
 
 export type User = {
   id :string
@@ -28,6 +29,11 @@ const PersistentDrawerMainContent = () => {
   useEffect(() => {
     FetchUsers((user: User[]) => { setUsers(user) });
   },[]);
+
+  const navigate = useNavigate()
+  const movetoupdate = (id: string) => {
+    navigate(`/${id}`);
+  };
 
   const columnHelper = createColumnHelper<User>();
 
@@ -47,6 +53,15 @@ const PersistentDrawerMainContent = () => {
     }),
     columnHelper.accessor('datetime_column', {
       header: () => 'Date',
+    }),
+    columnHelper.display({
+      id: 'update',
+      header: '更新',
+      cell: (props) => (
+        <button onClick={() => movetoupdate(props.row.original.id)}>
+          更新
+        </button>
+      ),
     }),
     columnHelper.display({
       id: 'delete',

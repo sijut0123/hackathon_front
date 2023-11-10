@@ -1,5 +1,4 @@
-export const FetchDelete = async (id : any) => {
-    console.log(id);
+export const FetchDelete = async (id : string) => {
     try {
         const response = await fetch (`https://hackathon-backend-zjgwehekya-uc.a.run.app/user?id=${id}`, {
             method: "DELETE"
