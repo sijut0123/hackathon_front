@@ -1,9 +1,7 @@
-export const FetchDelete = async () => {
-    let urlParamStr = window.location.pathname;
-    urlParamStr = urlParamStr.substring(1);
-
+export const FetchDelete = async (id : any) => {
+    console.log(id);
     try {
-        const response = await fetch (`https://hackathon-backend-zjgwehekya-uc.a.run.app/user?id=${urlParamStr}`, {
+        const response = await fetch (`https://hackathon-backend-zjgwehekya-uc.a.run.app/user?id=${id}`, {
             method: "DELETE"
         })
 
@@ -14,5 +12,5 @@ export const FetchDelete = async () => {
         }
     } catch(err) {
         console.error(err)
-    }
+    };
 };

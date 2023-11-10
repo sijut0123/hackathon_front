@@ -52,7 +52,7 @@ const PersistentDrawerMainContent = () => {
       id: 'delete',
       header: () => '削除',
       cell: (props) => (
-        <Button onClick={FetchDelete}>
+        <Button onClick={() => FetchDelete(props.row.original.id)}>
           削除
         </Button>
       ),
