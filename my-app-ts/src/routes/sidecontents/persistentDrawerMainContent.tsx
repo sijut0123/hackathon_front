@@ -84,6 +84,24 @@ const PersistentDrawerMainContent = () => {
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
   });
+
+  //行のどれか1つでも選択されていればtrueを返す
+  const isSelected = table.getIsSomeRowsSelected();
+  
+  //選択している行のidを配列にする
+  const ids = table.getSelectedRowModel().rows.map((row) => row.original.id);
+
+  const onDelete = (ids: string[]) => {
+    const updateTasks = users.filter((users) => !ids.includes(users.id));
+    setUsers(updateTasks);
+   }
+
+  const handleDelete = () => {
+    onDelete(ids);
+    //選択状態をリセット
+    table.resetRowSelection();
+  }
+
   
   return (
     <div className="App">
@@ -138,6 +156,11 @@ const PersistentDrawerMainContent = () => {
     >
     Next
     </button>
+    <button 
+      // 何も選択されていなければ非活性
+      disabled={!isSelected} 
+      onClick={handleDelete} 
+    >削除</button>
   </div>
       <Table>
         <TableHead>
