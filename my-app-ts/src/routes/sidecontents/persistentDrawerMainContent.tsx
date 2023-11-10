@@ -156,12 +156,12 @@ const PersistentDrawerMainContent = () => {
     >
     Next
     </button>
-    <button 
+  </div>
+  <button 
       // 何も選択されていなければ非活性
       disabled={!isSelected} 
       onClick={handleDelete} 
     >削除</button>
-  </div>
       <Table>
         <TableHead>
           {table.getHeaderGroups().map((headerGroup) => (
