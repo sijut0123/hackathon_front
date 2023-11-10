@@ -29,7 +29,8 @@ const curriculums = [
     { label:'技術系動画', value:'movie',}
   ];
 
-export const FetchPut = async () => {
+function FetchPut() {
+    const fetchput = async () => {
     const [curriculum, setCurriculum] = useState<string>("");
     const [category, setCategory] = useState<string>("");
     const [title, setTitle] = useState<string>("");
@@ -85,7 +86,7 @@ export const FetchPut = async () => {
         <div className="App">
             <header className="App-header">
           </header>
-            <form style={{ display: "flex", flexDirection: "column" }} onSubmit={FetchPut}>
+            <form style={{ display: "flex", flexDirection: "column" }} onSubmit={fetchput}>
               <div className="block_1">
               <Select
                 options={curriculums}
@@ -122,3 +123,6 @@ export const FetchPut = async () => {
         </div>
     );
 };
+}
+
+export default FetchPut;

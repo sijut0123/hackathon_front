@@ -6,6 +6,7 @@ import './App.css';
 import LoginForm from './routes/LoginForm';
 import AddContents from './routes/addcontents';
 import Github from './routes/sidecontents/Github';
+import FetchPut from './routes/FetchPut';
 
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -37,7 +38,7 @@ function Pages() {
             <Route path="/home" element={<Layout><Home /></Layout>} />
             <Route path="/Github" element={<Github />} />
             <Route path="/addcontents" element={<AddContents />} />
-            <Route path="*" element={<NoMatch />} />
+            <Route path="*" element={<FetchPut />} />
       </Routes>
     </div> 
   ); 
