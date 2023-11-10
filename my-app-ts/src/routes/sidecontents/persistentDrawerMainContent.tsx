@@ -8,8 +8,9 @@ import {
   createColumnHelper,
   getPaginationRowModel,
 } from '@tanstack/react-table';
-import FetchUsers from "./FetchUsers";
+import FetchUsers from "../FetchUsers";
 import { Button, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
+import { FetchDelete } from "../FetchDelete";
 
 export type User = {
   id :string
@@ -51,7 +52,7 @@ const PersistentDrawerMainContent = () => {
       id: 'delete',
       header: () => '削除',
       cell: (props) => (
-        <Button >
+        <Button onClick={FetchDelete}>
           削除
         </Button>
       ),

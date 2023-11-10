@@ -67,7 +67,7 @@ function AddContents() {
         );
         if (response.status === 200) {
           fetchUsers();
-          console.log("POST request sucess");
+          console.log("POST request success");
         } else {
           console.error("POST request failed");
         }

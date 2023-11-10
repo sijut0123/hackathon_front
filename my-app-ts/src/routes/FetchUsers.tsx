@@ -1,4 +1,4 @@
-import { User } from "./persistentDrawerMainContent";
+import { User } from "./sidecontents/persistentDrawerMainContent";
 
 const FetchUsers = async (setUserData: (userData: User[]) => void) => {
   let urlParamStr = window.location.pathname;
