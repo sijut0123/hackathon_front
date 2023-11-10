@@ -32,7 +32,7 @@ const PersistentDrawerMainContent = () => {
 
   const navigate = useNavigate()
   const movetoupdate = (id: string) => {
-    navigate(`/${id}`);
+    navigate(`/home/${id}`);
   };
 
   const columnHelper = createColumnHelper<User>();
