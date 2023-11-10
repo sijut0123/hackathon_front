@@ -9,7 +9,7 @@ import {
   getPaginationRowModel,
 } from '@tanstack/react-table';
 import FetchUsers from "./FetchUsers";
-import { Checkbox } from "@mui/material";
+import { Checkbox, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 
 export type User = {
   id : string;
@@ -45,7 +45,7 @@ const PersistentDrawerMainContent = () => {
         <Checkbox
           //行が選択されているかどうか
           checked={row.getIsSelected()}
-　　      //未実施の場合は非活性
+          //未実施の場合は非活性
           disabled={!row.original.isDone}
           //チェックボックスを切り替えるために使用するハンドラーを返す
           onChange={row.getToggleSelectedHandler()}
@@ -139,34 +139,34 @@ const PersistentDrawerMainContent = () => {
     Next
     </button>
   </div>
-      <table>
-        <thead>
+      <Table>
+        <TableHead>
           {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
+            <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
-                <th key={header.id}>
+                <TableCell key={header.id}>
                   {flexRender(
                     header.column.columnDef.header,
                     header.getContext()
                   )}
-                </th>
+                </TableCell>
               ))}
-            </tr>
+            </TableRow>
           ))}
-        </thead>
-        <tbody>
+        </TableHead>
+        <TableBody>
           {table
             .getRowModel().rows.map((row) => (
-            <tr key={row.id}>
+            <TableRow key={row.id}>
               {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>
+                <TableCell key={cell.id}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
+                </TableCell>
               ))}
-            </tr>
+            </TableRow>
           ))}
-        </tbody>
-      </table>
+        </TableBody>
+      </Table>
     </div>
     </div>
     );
