@@ -31,15 +31,16 @@ const curriculums = [
 
 function FetchPut() {
   const [curriculum, setCurriculum] = useState<string>("");
-    const [category, setCategory] = useState<string>("");
-    const [title, setTitle] = useState<string>("");
-    const [body, setBody] = useState<string>("");
-    const [datetime_column, setDatetime_column] = useState<string>("");
-    let id = window.location.pathname;
-    id = id.substring(1);
-    const fetchput = async () => {
+  const [category, setCategory] = useState<string>("");
+  const [title, setTitle] = useState<string>("");
+  const [body, setBody] = useState<string>("");
+  const [datetime_column, setDatetime_column] = useState<string>("");
+  let id = window.location.pathname;
+  id = id.substring(1);
+  console.log(id);
+  const fetchput = async () => {
   try {
-      const response = await fetch (`https://hackathon-backend-zjgwehekya-uc.a.run.app/user?id=${id}`, {
+      const response = await fetch (`https://hackathon-backend-zjgwehekya-uc.a.run.app/user`, {
           method: "PUT",
           headers: {
               "Content-Type": "application/json",
