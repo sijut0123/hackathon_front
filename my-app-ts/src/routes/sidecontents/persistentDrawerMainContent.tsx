@@ -30,6 +30,9 @@ const PersistentDrawerMainContent = () => {
   const columnHelper = createColumnHelper<User>();
 
   const columns = [
+    columnHelper.accessor('id',{
+      header:"Id",
+    }),
     columnHelper.accessor('curriculum',{
       header:"Curriculum",
     }),
