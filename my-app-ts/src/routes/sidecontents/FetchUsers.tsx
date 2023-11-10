@@ -4,8 +4,6 @@ const FetchUsers = async (setUserData: (userData: User[]) => void) => {
   let urlParamStr = window.location.pathname;
   urlParamStr = urlParamStr.substring(1);
 
-  console.log(`https://hackathon-backend-zjgwehekya-uc.a.run.app/user?curriculum=${urlParamStr}`);
-
   try{
     const getResponse = await fetch(`https://hackathon-backend-zjgwehekya-uc.a.run.app/user?curriculum=${urlParamStr}`, {
       method: "GET",

@@ -51,12 +51,27 @@ function Home() {
     fetchUsers();
   },[]);
 
+  const navigate = useNavigate()
+  const movetoaddcontents = () => {
+    navigate("/addcontents");
+  }
+
   return (
     <div className="App">
       <PersistentDrawerLeft
         sidemenu={<Sidemenu/>}
         mainContent={<PersistentDrawerMainContent/>}
       />
+      <header className="App-header">
+        <div>
+          <>
+          <button onClick={movetoaddcontents}>
+              新規追加
+          </button>
+          </>
+        </div>
+        <LogoutForm />
+      </header>
     </div>
   );
 }
