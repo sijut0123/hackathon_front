@@ -11,6 +11,7 @@ import {
 import FetchUsers from "./FetchUsers";
 
 export type User = {
+  id : string;
   curriculum : string;
   category : string;
   title : string;

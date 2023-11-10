@@ -13,7 +13,8 @@ import { Sidemenu } from "./sidecontents/sidemenu";
 import PersistentDrawerMainContent from "./sidecontents/persistentDrawerMainContent";
 import { useNavigate } from "react-router-dom";
 
-interface UserData {
+type UserData = {
+  id : string;
   curriculum : string;
   category : string;
   title : string;
