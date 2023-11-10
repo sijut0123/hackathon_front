@@ -9,10 +9,10 @@ import {
   getPaginationRowModel,
 } from '@tanstack/react-table';
 import FetchUsers from "./FetchUsers";
-import { Checkbox, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
+import { Button, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 
 export type User = {
-  id : string;
+  id :string
   curriculum : string;
   category : string;
   title : string;
@@ -31,51 +31,31 @@ const PersistentDrawerMainContent = () => {
   const columnHelper = createColumnHelper<User>();
 
   const columns = [
-    {
-      id: 'select',
-      header: () => (
-        <Checkbox
-          //現在のページの全ての行が選択されているかどうか
-          checked={table.getIsAllRowsSelected()}
-          //全ての行のチェックボックスを切り替えるために使用するハンドラーを返す
-          onChange={table.getToggleAllRowsSelectedHandler()}
-        />
-      ),
-      cell: ({ row }:{row : any}) => (
-        <Checkbox
-          //行が選択されているかどうか
-          checked={row.getIsSelected()}
-          //未実施の場合は非活性
-          disabled={!row.original.isDone}
-          //チェックボックスを切り替えるために使用するハンドラーを返す
-          onChange={row.getToggleSelectedHandler()}
-        />
-      )
-    },
-    {
-      accessorKey: "id",
-      header:"Id",
-    },
-    {
-      accessorKey: "curriculum",
+    columnHelper.accessor('curriculum',{
       header:"Curriculum",
-    },
-    {
-      accessorKey: "category",
-      header:"Category",
-    },
-    {
-      accessorKey: "title",
-      header:"Title",
-    },
-    {
-      accessorKey: "body",
-      header:"Body",
-    },
-    {
-      accessorKey: "datetime_column",
-      header:"Date",
-    },
+    }),
+    columnHelper.accessor('category', {
+      header: 'Category',
+    }),
+    columnHelper.accessor('title', {
+    header: () => 'Title',
+    }),
+    columnHelper.accessor('body', {
+      header: 'Body',
+      cell: (props) => props.getValue().toUpperCase(),
+    }),
+    columnHelper.accessor('datetime_column', {
+      header: () => 'Date',
+    }),
+    columnHelper.display({
+      id: 'delete',
+      header: () => '削除',
+      cell: (props) => (
+        <Button >
+          削除
+        </Button>
+      ),
+    }),
   ];
 
   const table = useReactTable({
@@ -84,24 +64,6 @@ const PersistentDrawerMainContent = () => {
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
   });
-
-  //行のどれか1つでも選択されていればtrueを返す
-  const isSelected = table.getIsSomeRowsSelected();
-  
-  //選択している行のidを配列にする
-  const ids = table.getSelectedRowModel().rows.map((row) => row.original.id);
-
-  const onDelete = (ids: string[]) => {
-    const updateTasks = users.filter((users) => !ids.includes(users.id));
-    setUsers(updateTasks);
-   }
-
-  const handleDelete = () => {
-    onDelete(ids);
-    //選択状態をリセット
-    table.resetRowSelection();
-  }
-
   
   return (
     <div className="App">
@@ -157,11 +119,6 @@ const PersistentDrawerMainContent = () => {
     Next
     </button>
   </div>
-  <button 
-      // 何も選択されていなければ非活性
-      disabled={!isSelected} 
-      onClick={handleDelete} 
-    >削除</button>
       <Table>
         <TableHead>
           {table.getHeaderGroups().map((headerGroup) => (
