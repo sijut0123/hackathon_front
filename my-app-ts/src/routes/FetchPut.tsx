@@ -30,99 +30,99 @@ const curriculums = [
   ];
 
 function FetchPut() {
-    const fetchput = async () => {
-    const [curriculum, setCurriculum] = useState<string>("");
+  const [curriculum, setCurriculum] = useState<string>("");
     const [category, setCategory] = useState<string>("");
     const [title, setTitle] = useState<string>("");
     const [body, setBody] = useState<string>("");
     const [datetime_column, setDatetime_column] = useState<string>("");
     let id = window.location.pathname;
     id = id.substring(1);
-    try {
-        const response = await fetch (`https://hackathon-backend-zjgwehekya-uc.a.run.app/user?id=${id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                id,
-                curriculum,
-                category,
-                title,
-                body,
-                datetime_column,
-              }),
-        })
+    const fetchput = async () => {
+  try {
+      const response = await fetch (`https://hackathon-backend-zjgwehekya-uc.a.run.app/user?id=${id}`, {
+          method: "PUT",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+              id,
+              curriculum,
+              category,
+              title,
+              body,
+              datetime_column,
+            }),
+      })
 
-        if (response.status === 200) {
-            console.log("PUT request success")
-        } else {
-            console.log("PUT request fail")
-        }
-        setCurriculum("");
-        setCategory("");
-        setBody("");
-        setTitle("");
-        setDatetime_column("");
-    } catch(err) {
-        console.log(err)
+      if (response.status === 200) {
+          console.log("PUT request success")
+      } else {
+          console.log("PUT request fail")
+      }
+      setCurriculum("");
+      setCategory("");
+      setBody("");
+      setTitle("");
+      setDatetime_column("");
+  } catch(err) {
+      console.log(err)
+  };
+  };
+
+  const navigate = useNavigate()
+  const movetohome = () => {
+      navigate("/home");
+  };
+
+  const handlechangecurriculum = (e:any) => {
+      setCurriculum(e.label);
+      const time = (store.getState().year + '年' + store.getState().month + '月' + store.getState().day + '日' + store.getState().hour + ':' + store.getState().minute);
+      setDatetime_column(time)
     };
-
-    const navigate = useNavigate()
-    const movetohome = () => {
-        navigate("/home");
-    };
-
-    const handlechangecurriculum = (e:any) => {
-        setCurriculum(e.label);
-        const time = (store.getState().year + '年' + store.getState().month + '月' + store.getState().day + '日' + store.getState().hour + ':' + store.getState().minute);
-        setDatetime_column(time)
-      };
     
-      const handlechangecategory = (e:any) => {
-        setCategory(e.label);
-      };
-    return (
-        <div className="App">
-            <header className="App-header">
-          </header>
-            <form style={{ display: "flex", flexDirection: "column" }} onSubmit={fetchput}>
-              <div className="block_1">
-              <Select
-                options={curriculums}
-                defaultValue={{label:'Select...', value:'default'}}
-                onChange={handlechangecurriculum}
-              />
-              </div>
-              <div className="block_1">
-              <Select
-                options={categories}
-                defaultValue={{label:'Select...', value:'default'}}
-                onChange={handlechangecategory}
-              />
-              </div>
-              <div className="block_1">
-              <label>Title: <input 
-                type={"text"}
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                className="txt_1"
-              ></input></label>
-              </div>
-              <div className="block_1">
-              <label>Body: <input 
-                type={"text"}
-                value={body}
-                onChange={(e) => setBody(e.target.value)}
-                className="txt_1"
-              ></input></label>
-              </div>
-              <button type={"submit"} className="block_1">POST</button>
-            </form>
-              <button type={"submit"} className="block_1" onClick={movetohome}>戻る</button>
-        </div>
-    );
-};
+    const handlechangecategory = (e:any) => {
+      setCategory(e.label);
+    };
+  return (
+      <div className="App">
+          <header className="App-header">
+        </header>
+          <form style={{ display: "flex", flexDirection: "column" }} onSubmit={fetchput}>
+            <div className="block_1">
+            <Select
+              options={curriculums}
+              defaultValue={{label:'Select...', value:'default'}}
+              onChange={handlechangecurriculum}
+            />
+            </div>
+            <div className="block_1">
+            <Select
+              options={categories}
+              defaultValue={{label:'Select...', value:'default'}}
+              onChange={handlechangecategory}
+            />
+            </div>
+            <div className="block_1">
+            <label>Title: <input 
+              type={"text"}
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="txt_1"
+            ></input></label>
+            </div>
+            <div className="block_1">
+            <label>Body: <input 
+              type={"text"}
+              value={body}
+              onChange={(e) => setBody(e.target.value)}
+              className="txt_1"
+            ></input></label>
+            </div>
+            <button type={"submit"} className="block_1">POST</button>
+          </form>
+            <button type={"submit"} className="block_1" onClick={movetohome}>戻る</button>
+      </div>
+  );
 }
 
 export default FetchPut;
