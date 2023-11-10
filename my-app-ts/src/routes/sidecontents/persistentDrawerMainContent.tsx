@@ -9,6 +9,7 @@ import {
   getPaginationRowModel,
 } from '@tanstack/react-table';
 import FetchUsers from "./FetchUsers";
+import { Checkbox } from "@mui/material";
 
 export type User = {
   id : string;
@@ -30,25 +31,51 @@ const PersistentDrawerMainContent = () => {
   const columnHelper = createColumnHelper<User>();
 
   const columns = [
-    columnHelper.accessor('id',{
+    {
+      id: 'select',
+      header: () => (
+        <Checkbox
+          //現在のページの全ての行が選択されているかどうか
+          checked={table.getIsAllRowsSelected()}
+          //全ての行のチェックボックスを切り替えるために使用するハンドラーを返す
+          onChange={table.getToggleAllRowsSelectedHandler()}
+        />
+      ),
+      cell: ({ row }:{row : any}) => (
+        <Checkbox
+          //行が選択されているかどうか
+          checked={row.getIsSelected()}
+　　      //未実施の場合は非活性
+          disabled={!row.original.isDone}
+          //チェックボックスを切り替えるために使用するハンドラーを返す
+          onChange={row.getToggleSelectedHandler()}
+        />
+      )
+    },
+    {
+      accessorKey: "id",
       header:"Id",
-    }),
-    columnHelper.accessor('curriculum',{
+    },
+    {
+      accessorKey: "curriculum",
       header:"Curriculum",
-    }),
-    columnHelper.accessor('category', {
-      header: 'Category',
-    }),
-    columnHelper.accessor('title', {
-    header: () => 'Title',
-    }),
-    columnHelper.accessor('body', {
-      header: 'Body',
-      cell: (props) => props.getValue().toUpperCase(),
-    }),
-    columnHelper.accessor('datetime_column', {
-      header: () => 'Date',
-    }),
+    },
+    {
+      accessorKey: "category",
+      header:"Category",
+    },
+    {
+      accessorKey: "title",
+      header:"Title",
+    },
+    {
+      accessorKey: "body",
+      header:"Body",
+    },
+    {
+      accessorKey: "datetime_column",
+      header:"Date",
+    },
   ];
 
   const table = useReactTable({
