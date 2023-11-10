@@ -7,6 +7,7 @@ import {
   useReactTable,
   createColumnHelper,
   getPaginationRowModel,
+  getSortedRowModel,
 } from '@tanstack/react-table';
 import FetchUsers from "../FetchUsers";
 import { Button, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
@@ -40,19 +41,22 @@ const PersistentDrawerMainContent = () => {
   const columns = [
     columnHelper.accessor('curriculum',{
       header:"Curriculum",
+      sortDescFirst: false,
     }),
     columnHelper.accessor('category', {
       header: 'Category',
+      sortDescFirst: false,
     }),
     columnHelper.accessor('title', {
-    header: () => 'Title',
+      header: 'Title',
+      sortDescFirst: false,
     }),
     columnHelper.accessor('body', {
       header: 'Body',
-      cell: (props) => props.getValue().toUpperCase(),
+      sortDescFirst: false,
     }),
     columnHelper.accessor('datetime_column', {
-      header: () => 'Date',
+      header:  'Date',
     }),
     columnHelper.display({
       id: 'update',
@@ -79,6 +83,7 @@ const PersistentDrawerMainContent = () => {
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
+    getSortedRowModel: getSortedRowModel(),
   });
   
   return (
@@ -140,11 +145,18 @@ const PersistentDrawerMainContent = () => {
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
-                <TableCell key={header.id}>
+                <TableCell 
+                  key={header.id}
+                  onClick={header.column.getToggleSortingHandler()}
+                  >
                   {flexRender(
                     header.column.columnDef.header,
                     header.getContext()
                   )}
+                  {{
+                    asc: ' 🔼',
+                    desc: ' 🔽',
+                  }[header.column.getIsSorted() as string] ?? null}
                 </TableCell>
               ))}
             </TableRow>
