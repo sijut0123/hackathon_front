@@ -1,4 +1,5 @@
 import "./contents.css";
+import "../home.css"
 import { useState } from "react";
 import { useEffect } from "react";
 import {
@@ -58,10 +59,6 @@ const PersistentDrawerMainContent = () => {
     }),
     columnHelper.accessor('title', {
       header: 'Title',
-      sortDescFirst: false,
-    }),
-    columnHelper.accessor('body', {
-      header: 'Body',
       sortDescFirst: false,
     }),
     columnHelper.accessor('datetime_column', {
@@ -156,7 +153,7 @@ const PersistentDrawerMainContent = () => {
         >
           Next
         </button>
-        <button onClick={movetoaddcontents}>
+        <button onClick={movetoaddcontents} >
           新規追加
       </button>
   </div>

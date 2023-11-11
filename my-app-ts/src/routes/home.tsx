@@ -1,11 +1,9 @@
 import './home.css';
 import { useState } from "react";
 import { useEffect } from "react";
-import LogoutForm from "./LogoutForm";
 import PersistentDrawerLeft from "./sidecontents/PersistentDrawerLeft";
 import { Sidemenu } from "./sidecontents/sidemenu";
 import PersistentDrawerMainContent from "./sidecontents/persistentDrawerMainContent";
-import { useNavigate } from "react-router-dom";
 
 type UserData = {
   id : string;
