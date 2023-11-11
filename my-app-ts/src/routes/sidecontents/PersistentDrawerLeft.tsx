@@ -11,6 +11,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import LogoutForm from '../LogoutForm';
+import "../home.css"
 
 const drawerWidth = 240;
 
@@ -112,7 +113,7 @@ export default function PersistentDrawerLeft(props: Props) {
         anchor="left"
         open={open}
       >
-        <DrawerHeader>
+        <DrawerHeader className='flex_sidemenu'>
         <LogoutForm />
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}

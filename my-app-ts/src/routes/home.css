@@ -176,3 +176,9 @@
 .flex_test-item {
   margin-left: 565px;
 }
+
+.flex_sidemenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

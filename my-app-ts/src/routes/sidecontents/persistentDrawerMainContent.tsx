@@ -49,20 +49,20 @@ const PersistentDrawerMainContent = () => {
 
   const columns = [
     columnHelper.accessor('curriculum',{
-      header:"Curriculum",
+      header:"カリキュラム",
       sortDescFirst: false,
       enableColumnFilter: false,
     }),
     columnHelper.accessor('category', {
-      header: 'Category',
+      header: 'カテゴリー',
       sortDescFirst: false,
     }),
     columnHelper.accessor('title', {
-      header: 'Title',
+      header: 'タイトル',
       sortDescFirst: false,
     }),
     columnHelper.accessor('datetime_column', {
-      header:  'Date',
+      header:  '更新日時',
     }),
     columnHelper.display({
       id: 'contents',
@@ -105,7 +105,7 @@ const PersistentDrawerMainContent = () => {
   return (
     <div className="App">
         <div style={{ margin: '2em' }}>
-      <h1>Posts List</h1>
+      <h1>一覧</h1>
       <div>Page Size</div>
         <select
           value={pageSize}
@@ -124,7 +124,7 @@ const PersistentDrawerMainContent = () => {
             disabled={!table.getCanPreviousPage()}
             onClick={() => table.previousPage()}
         >
-            Privious
+            ◀️前
         </button>
         {Array.from({ length: table.getPageCount() }, (_, i) => i).map(
         (index) => (
@@ -151,7 +151,7 @@ const PersistentDrawerMainContent = () => {
         disabled={!table.getCanNextPage()}
         onClick={() => table.nextPage()}
         >
-          Next
+          次▶️
         </button>
         <button onClick={movetoaddcontents} >
           新規追加
