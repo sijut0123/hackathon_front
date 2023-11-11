@@ -26,7 +26,7 @@ const curriculums = [
   {value:'rdbms', label:'RDBMS(MySQL)への接続(Go)'},
   {value:'unittest', label:'Unit Test(Go)'},
   {value:'frontend & backend', label:'フロントエンドとバックエンドの接続'},
-  {value:'ci', label:'CI(Continuous Integration'},
+  {value:'ci', label:'CI(Continuous Integration)'},
   {value:'cd', label:'CD(Continuous Delivery/Deployment)'},
   {value:'authentication', label:'認証'}
 ];

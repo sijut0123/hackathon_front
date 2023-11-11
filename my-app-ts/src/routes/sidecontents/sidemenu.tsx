@@ -15,7 +15,7 @@ export function Sidemenu() {
     <>
       {/* 下記はデモコードのリスト部分 */}
       <List>
-        {['home', 'Github', 'Send email', 'Drafts'].map((text, index) => (
+        {['home'].map((text, index) => (
             <Link to={"/" + text}>
             <ListItem button key={text}>
                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
@@ -26,13 +26,32 @@ export function Sidemenu() {
       </List>
       <Divider />
       <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
+      {[
+        'OSコマンド(とシェル)', 
+        'Git', 'Github', 
+        'HTML & CSS', 
+        'JavaScript', 
+        'React', 
+        'React x Typescript', 
+        'SQL',
+        'Docker',
+        'Go',
+        'HTTP Server(Go)',
+        'RDBMS(MySQL)への接続(Go)',
+        'Unit Test(Go)',
+        'フロントエンドとバックエンドの接続',
+        'CI(Continous Integration)',
+        'CD(Continuous Delivery/Deployment)',
+        '認証'
+        ].map((text, index) => (
+            <Link to={"/" + text}>
+            <ListItem button key={text}>
+                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                <ListItemText primary={text} />
+            </ListItem>
+            </Link>
         ))}
-      </List>
+        </List>
     </>
   );
 }

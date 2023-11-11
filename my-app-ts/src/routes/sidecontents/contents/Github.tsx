@@ -1,7 +1,7 @@
-import './oscommand.css';
-import PersistentDrawerLeft from "./PersistentDrawerLeft";
-import { Sidemenu } from "./sidemenu";
-import PersistentDrawerMainContent from "./persistentDrawerMainContent";
+import './contents.css';
+import PersistentDrawerLeft from "../PersistentDrawerLeft";
+import { Sidemenu } from "../sidemenu";
+import PersistentDrawerMainContent from "../persistentDrawerMainContent";
 
 function Github() {
   return (
