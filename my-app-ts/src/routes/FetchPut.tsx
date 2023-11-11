@@ -4,13 +4,13 @@ import Select from "react-select";
 import { useNavigate } from "react-router-dom";
 
 const curriculums = [
-    {label: 'OSコマンド(とシェル)', value: 'oscommand'},
+    {label:'OSコマンド(とシェル)', value: 'oscommand'},
     {label:'Git', value:'git'},
     {label:'Github', value:'github'},
     {label:'HTML & CSS', value:'html&css'},
     {label:'JavaScript', value:'javascript'},
     {label:'React', value:'react', },
-    {label:'React x Tyepscript', value:'typescript'},
+    {label:'React x Typescript', value:'typescript'},
     {label:'SQL', value:'sql', },
     {label:'Docker', value:'docker',},
     {label:'Go', value:'go', },
