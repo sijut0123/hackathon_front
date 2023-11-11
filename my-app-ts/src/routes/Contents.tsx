@@ -6,9 +6,10 @@ function Contents() {
     const FetchUsers = async (setUserData: (userData: User[]) => void) => {
         let urlParamStr = window.location.pathname;
         urlParamStr = urlParamStr.substring(10);
+        console.log(urlParamStr);
       
         try{
-          const getResponse = await fetch(`https://hackathon-backend-zjgwehekya-uc.a.run.app/user?curriculum=${urlParamStr}`, {
+          const getResponse = await fetch(`https://hackathon-backend-zjgwehekya-uc.a.run.app/user?id=${urlParamStr}`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
@@ -30,7 +31,8 @@ function Contents() {
       };
     useEffect(() => {
         FetchUsers((user: User[]) => { setUsers(user) });
-      },[]);
+    },[]);
+    console.log(users)
     return (
         <div>
             <h2>test</h2>
