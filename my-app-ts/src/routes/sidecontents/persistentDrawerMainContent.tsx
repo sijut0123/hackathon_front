@@ -8,11 +8,13 @@ import {
   createColumnHelper,
   getPaginationRowModel,
   getSortedRowModel,
+  getFilteredRowModel,
 } from '@tanstack/react-table';
 import FetchUsers from "../FetchUsers";
 import { Button, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import { FetchDelete } from "../FetchDelete";
 import { useNavigate } from "react-router-dom";
+import Filter from "./Filter"
 
 export type User = {
   id :string
@@ -42,6 +44,7 @@ const PersistentDrawerMainContent = () => {
     columnHelper.accessor('curriculum',{
       header:"Curriculum",
       sortDescFirst: false,
+      enableColumnFilter: false,
     }),
     columnHelper.accessor('category', {
       header: 'Category',
@@ -84,6 +87,7 @@ const PersistentDrawerMainContent = () => {
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
   });
   
   return (
@@ -157,6 +161,11 @@ const PersistentDrawerMainContent = () => {
                     asc: ' 🔼',
                     desc: ' 🔽',
                   }[header.column.getIsSorted() as string] ?? null}
+                  {header.column.getCanFilter() ? (
+                      <div>
+                        <Filter column={header.column} table={table} />
+                      </div>
+                    ) : null}
                 </TableCell>
               ))}
             </TableRow>
