@@ -76,3 +76,13 @@
     margin: 0;
     align-self: flex-start;
   }
+
+  h1 {
+    /* 水平方向の中央揃え */
+    text-align: center;
+  }
+
+  .hr2 {
+    border-top: 2px solid skyblue;
+  }
+  

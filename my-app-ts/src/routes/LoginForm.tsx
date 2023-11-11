@@ -3,6 +3,8 @@ import { getAuth } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import "./LoginForm.css"
+import { BorderAll } from '@mui/icons-material';
+import { Divider } from '@mui/material';
 
 const LoginForm: React.FC = () => {
   const [userName, setUserName] = useState<string | null>(null);
@@ -36,7 +38,7 @@ const LoginForm: React.FC = () => {
     <div className="formContainer">
       <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit}>
         <h1>ログイン</h1>
-        <hr />
+        <hr className='hr2'/>
         <div className='uiForm'>
         
           <div className='formField'>
