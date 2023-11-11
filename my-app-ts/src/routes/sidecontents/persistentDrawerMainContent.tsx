@@ -17,13 +17,13 @@ import { useNavigate } from "react-router-dom";
 import Filter from "./Filter"
 
 export type User = {
-  id :string
-  curriculum : string;
-  category : string;
-  title : string;
-  body : string;
+  id              :string;
+  curriculum      : string;
+  category        : string;
+  title           : string;
+  body            : string;
   datetime_column : string;
-}
+};
 
 const PersistentDrawerMainContent = () => {
   const [users, setUsers] = useState<User[]>([]);
