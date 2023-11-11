@@ -33,13 +33,15 @@ function Contents() {
       },[]);
     return (
         <div>
+            <h2>test</h2>
             {users.map((data, index) => (
-                <div key={index} className="txt_2">
+                <div key={index}>
                     <h2>{data.title}</h2>
+                    <h2>test</h2>
                 </div>
             ))}
         </div>
-    )
-  }
+    );
+  };
   
   export default Contents;
