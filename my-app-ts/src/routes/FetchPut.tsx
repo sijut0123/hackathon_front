@@ -85,44 +85,49 @@ function FetchPut() {
       setCategory(e.label);
     };
   return (
-      <div className="App">
-          <header className="App-header">
-        </header>
-          <form style={{ display: "flex", flexDirection: "column" }} onSubmit={fetchput}>
-            <div className="block_1">
-            <Select
-              options={curriculums}
-              defaultValue={{label:'Select...', value:'default'}}
-              onChange={handlechangecurriculum}
-            />
-            </div>
-            <div className="block_1">
-            <Select
-              options={categories}
-              defaultValue={{label:'Select...', value:'default'}}
-              onChange={handlechangecategory}
-            />
-            </div>
-            <div className="block_1">
-            <label>Title: <input 
-              type={"text"}
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              className="txt_1"
-            ></input></label>
-            </div>
-            <div className="block_1">
-            <label>Body: <input 
-              type={"text"}
-              value={body}
-              onChange={(e) => setBody(e.target.value)}
-              className="txt_1"
-            ></input></label>
-            </div>
-            <button type={"submit"} className="block_1">POST</button>
-          </form>
-            <button type={"submit"} className="block_1" onClick={movetohome}>戻る</button>
+    <section>
+      <div className="item">
+        <button type={"submit"} onClick={movetohome}>戻る</button>
+        <h1 className="flex_test-item">更新</h1>
       </div>
+        <form style={{ display: "flex", flexDirection: "column" }} onSubmit={fetchput}>
+        <div>
+        <Select
+          className="selectbutton"
+          options={curriculums}
+          defaultValue={{label:'Select...', value:'default'}}
+          onChange={handlechangecurriculum}
+        />
+        </div>
+        <div>
+        <Select
+          className="selectbutton"
+          options={categories}
+          defaultValue={{label:'Select...', value:'default'}}
+          onChange={handlechangecategory}
+        />
+        </div>
+        <div className="cp_iptxt">
+        <input 
+          type={"text"}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          className="ef"
+        />
+        <label>Title</label>
+        <span className="focus_line"></span>
+        </div>
+        <div className="cp_iptxt">
+        <label>内容を入力してください</label>
+        <textarea
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+          className="textbox-002"
+        />
+        </div>
+        <button type={"submit"} className="postbutton" >POST</button>
+      </form>
+      </section>
   );
 }
 
