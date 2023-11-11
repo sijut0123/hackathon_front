@@ -18,7 +18,7 @@ const curriculums = [
   {value:'html&css', label:'HTML & CSS'},
   {value:'javascript', label:'JavaScript'},
   {value:'react', label:'React'},
-  {value:'typescript', label:'React x Tyepscript'},
+  {value:'typescript', label:'React x Typescript'},
   {value:'sql', label:'SQL'},
   {value:'docker', label:'Docker'},
   {value:'go', label:'Go'},
