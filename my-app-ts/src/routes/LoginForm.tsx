@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
-
+import "./LoginForm.css"
 
 const LoginForm: React.FC = () => {
   const [userName, setUserName] = useState<string | null>(null);
@@ -31,30 +31,40 @@ const LoginForm: React.FC = () => {
     navigate("/signup");
   };
   
+  
   return (
-    <div>
-      <button onClick={signInWithEmailandPassword}>
-        メール・パスワードでログイン
-      </button>
+    <div className="formContainer">
       <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit}>
-        <label>Email: </label>
-        <input
-          type="string"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        ></input>
+        <h1>ログイン</h1>
+        <hr />
+        <div className='uiForm'>
+        
+          <div className='formField'>
+            <label>Email: </label>
+            <input
+              type="string"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            ></input>
+          </div>
+          <div className='formField'>
+            <label>Password: </label>
+            <input
+              type="string"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            ></input>
+          </div>
+          <div className="loginButton">
+            <button onClick={signInWithEmailandPassword} className="submitButton">
+              メール・パスワードでログイン
+            </button>
+            <button onClick={movetosignup} className="clearButton" >
+              新規ユーザー作成
+            </button>
+          </div>
+      </div>
       </form>
-      <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit}>
-        <label>Password: </label>
-        <input
-          type="string"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-      </form>
-      <button onClick={movetosignup}>
-        新規アカウント作成
-      </button>
     </div>
 
   );
