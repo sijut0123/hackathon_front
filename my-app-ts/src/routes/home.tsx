@@ -1,12 +1,6 @@
 import './home.css';
 import { useState } from "react";
 import { useEffect } from "react";
-import {
-  getCoreRowModel,
-  useReactTable,
-  createColumnHelper,
-  getPaginationRowModel,
-} from '@tanstack/react-table';
 import LogoutForm from "./LogoutForm";
 import PersistentDrawerLeft from "./sidecontents/PersistentDrawerLeft";
 import { Sidemenu } from "./sidecontents/sidemenu";
@@ -51,28 +45,12 @@ function Home() {
   useEffect(() => {
     fetchUsers();
   },[]);
-
-  const navigate = useNavigate()
-  const movetoaddcontents = () => {
-    navigate("/addcontents");
-  }
-
   return (
     <div className="App">
       <PersistentDrawerLeft
         sidemenu={<Sidemenu/>}
         mainContent={<PersistentDrawerMainContent/>}
       />
-      <header className="App-header">
-        <div>
-          <>
-          <button onClick={movetoaddcontents}>
-              新規追加
-          </button>
-          </>
-        </div>
-        <LogoutForm />
-      </header>
     </div>
   );
 }

@@ -10,6 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import LogoutForm from '../LogoutForm';
 
 const drawerWidth = 240;
 
@@ -112,6 +113,7 @@ export default function PersistentDrawerLeft(props: Props) {
         open={open}
       >
         <DrawerHeader>
+        <LogoutForm />
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>

@@ -40,6 +40,9 @@ const PersistentDrawerMainContent = () => {
   const movetocontents = (id : string ) => {
     navigate(`/contents/${id}`);
   };
+  const movetoaddcontents = () => {
+    navigate("/addcontents");
+  }
 
   const columnHelper = createColumnHelper<User>();
 
@@ -104,8 +107,6 @@ const PersistentDrawerMainContent = () => {
   
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
         <div style={{ margin: '2em' }}>
       <h1>Posts List</h1>
       <div>Page Size</div>
@@ -148,13 +149,16 @@ const PersistentDrawerMainContent = () => {
                 {index + 1}
             </div>
         )
-    )}
-    <button
-    disabled={!table.getCanNextPage()}
-    onClick={() => table.nextPage()}
-    >
-    Next
-    </button>
+        )}
+        <button
+        disabled={!table.getCanNextPage()}
+        onClick={() => table.nextPage()}
+        >
+          Next
+        </button>
+        <button onClick={movetoaddcontents}>
+          新規追加
+      </button>
   </div>
       <Table>
         <TableHead>
