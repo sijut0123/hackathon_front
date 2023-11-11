@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 import Filter from "./Filter"
 
 export type User = {
-  id              :string;
+  id              : string;
   curriculum      : string;
   category        : string;
   title           : string;
@@ -36,6 +36,9 @@ const PersistentDrawerMainContent = () => {
   const navigate = useNavigate()
   const movetoupdate = (id: string) => {
     navigate(`${id}`);
+  };
+  const movetocontents = (id : string ) => {
+    navigate(`/contents/${id}`);
   };
 
   const columnHelper = createColumnHelper<User>();
@@ -60,6 +63,15 @@ const PersistentDrawerMainContent = () => {
     }),
     columnHelper.accessor('datetime_column', {
       header:  'Date',
+    }),
+    columnHelper.display({
+      id: 'contents',
+      header: '詳細',
+      cell: (props) => (
+        <button onClick={() => movetocontents(props.row.original.id)}>
+          詳細
+        </button>
+      ),
     }),
     columnHelper.display({
       id: 'update',

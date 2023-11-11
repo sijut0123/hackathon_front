@@ -7,6 +7,7 @@ import LoginForm from './routes/LoginForm';
 import AddContents from './routes/addcontents';
 import Github from './routes/sidecontents/Github';
 import FetchPut from './routes/FetchPut';
+import Contents from './routes/Contents';
 
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -39,6 +40,7 @@ function Pages() {
             <Route path="/Github" element={<Github />} />
             <Route path="/addcontents" element={<AddContents />} />
             <Route path="*" element={<FetchPut />} />
+            <Route path="/contents/*" element={<Contents />} />
       </Routes>
     </div> 
   ); 
