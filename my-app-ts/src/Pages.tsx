@@ -23,6 +23,7 @@ import FrontBack from './routes/sidecontents/contents/FrontBack';
 import Ci from './routes/sidecontents/contents/Ci';
 import Cd from './routes/sidecontents/contents/Cd';
 import Authentication from './routes/sidecontents/contents/Authentication';
+import SignUp from './routes/SingUp';
 
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -72,6 +73,7 @@ function Pages() {
             <Route path="/addcontents" element={<AddContents />} />
             <Route path="*" element={<FetchPut />} />
             <Route path="/contents/*" element={<Contents />} />
+            <Route path="/signup" element={<SignUp />} />
       </Routes>
     </div> 
   ); 

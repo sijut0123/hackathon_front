@@ -3,25 +3,12 @@ import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "fir
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 
+
 const LoginForm: React.FC = () => {
   const [userName, setUserName] = useState<string | null>(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
-  const createuser = () => {
-    const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-    const user = userCredential.user;
-    alert("ログインユーザー: " + user.displayName);
-    setUserName(user.displayName)
-    })
-    .catch((error) => {
-    const errorMessage = error.message;
-    alert(errorMessage);
-  });
-  }
 
   const signInWithEmailandPassword = () => {
     const auth = getAuth();
@@ -29,6 +16,7 @@ const LoginForm: React.FC = () => {
     .then((userCredential: { user: any; }) => {
       // Signed in 
       const user = userCredential.user;
+      alert("新規ユーザー: " + user.displayName);
       navigate("/home");
       setUserName(user.displayName)
       }).catch((err: any) => {
@@ -38,9 +26,11 @@ const LoginForm: React.FC = () => {
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault()
   }
-
   
-
+  const movetosignup = () => {
+    navigate("/signup");
+  };
+  
   return (
     <div>
       <button onClick={signInWithEmailandPassword}>
@@ -61,8 +51,10 @@ const LoginForm: React.FC = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         ></input>
-        <button type={"submit"} onClick={createuser} >新規ユーザー作成</button>
       </form>
+      <button onClick={movetosignup}>
+        新規アカウント作成
+      </button>
     </div>
 
   );
