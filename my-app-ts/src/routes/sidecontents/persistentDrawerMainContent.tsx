@@ -1,4 +1,4 @@
-import "./oscommand.css";
+import "./contents.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import {

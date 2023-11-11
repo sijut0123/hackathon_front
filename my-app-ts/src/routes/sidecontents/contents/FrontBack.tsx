@@ -1,4 +1,4 @@
-import './contents.css';
+import '../contents.css';
 import PersistentDrawerLeft from "../PersistentDrawerLeft";
 import { Sidemenu } from "../sidemenu";
 import PersistentDrawerMainContent from "../persistentDrawerMainContent";
