@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { User } from "./sidecontents/persistentDrawerMainContent";
+import PersistentDrawerMainContent, { User } from "./sidecontents/persistentDrawerMainContent";
+import PersistentDrawerLeft from "./sidecontents/PersistentDrawerLeft";
+import { Sidemenu } from "./sidecontents/sidemenu";
 
 function Contents() {
     const [users, setUsers] = useState<User[]>([]);
@@ -35,11 +37,17 @@ function Contents() {
     console.log(users)
     return (
         <div>
-            <h2>test</h2>
+            <PersistentDrawerLeft
+                sidemenu={<Sidemenu/>}
+                mainContent={<PersistentDrawerMainContent/>}
+            />
             {users.map((data, index) => (
                 <div key={index}>
-                    <h2>{data.title}</h2>
-                    <h2>test</h2>
+                    <article>
+                        <h2>Title: {data.title}</h2>
+                        <p>更新日時: {data.datetime_column}</p>
+                        <p>{data.body}</p>
+                    </article>
                 </div>
             ))}
         </div>
