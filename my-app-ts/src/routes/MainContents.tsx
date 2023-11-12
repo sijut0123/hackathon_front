@@ -36,8 +36,8 @@ function MainContents() {
         <div>
             {users.map((data, index) => (
                 <div key={index}>
-                    <article className="box29">
-                        <h1 className="boxtitle">{data.title}</h1>
+                    <div className="box29">
+                        <div className="boxtitle">{data.title}</div>
                         <div className="box8">
                             <p>カリキュラム： {data.curriculum}</p>
                         </div>
@@ -48,7 +48,7 @@ function MainContents() {
                             <p>更新日時： {data.datetime_column}</p>
                         </div>
                         <p>{data.body}</p>
-                    </article>
+                    </div>
                 </div>
             ))}
         </div>

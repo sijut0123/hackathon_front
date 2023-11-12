@@ -184,8 +184,11 @@
 }
 
 .box8 {
+  width: 20%;
   padding: 0.5em 1em;
   margin: 2em 0;
+  margin-bottom: 0%;
+  margin-top: 0%;
   color: #232323;
   background: #fff8e8;
   border-left: solid 10px #ffc06e;
@@ -196,6 +199,7 @@
 }
 
 .box29 {
+  width: 80%;
   margin: 2em 0;
   background: #dcefff;
 }
