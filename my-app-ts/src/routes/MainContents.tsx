@@ -37,7 +37,7 @@ function MainContents() {
             {users.map((data, index) => (
                 <div key={index}>
                     <div className="box29">
-                        <div className="boxtitle">{data.title}</div>
+                        <div className="box-title">{data.title}</div>
                         <div className="box8">
                             <p>カリキュラム： {data.curriculum}</p>
                         </div>
