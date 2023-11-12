@@ -201,9 +201,11 @@
 .box29 {
   width: 80%;
   margin: 2em 0;
+  margin-left: auto;
+  margin-right: auto;
   background: #dcefff;
 }
-.box29 .box-title {
+.box-title {
   font-size: 1.2em;
   background: #5fb3f5;
   padding: 4px;
