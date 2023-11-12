@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { User } from "./sidecontents/persistentDrawerMainContent";
+import "./home.css"
 
 function MainContents() {
     const [users, setUsers] = useState<User[]>([]);
@@ -36,9 +37,9 @@ function MainContents() {
             {users.map((data, index) => (
                 <div key={index}>
                     <article>
-                        <h1>Title: {data.title}</h1>
+                        <h1>{data.title}</h1>
                         <table>
-                            <tr>
+                            <tr className="box8">
                                 <th>カリキュラム：</th>
                                 <td>{data.curriculum}</td>
                             </tr>
