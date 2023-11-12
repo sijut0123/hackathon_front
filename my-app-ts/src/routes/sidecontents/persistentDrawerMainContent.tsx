@@ -22,6 +22,7 @@ export type User = {
   curriculum      : string;
   category        : string;
   title           : string;
+  url             : string;
   body            : string;
   datetime_column : string;
 };

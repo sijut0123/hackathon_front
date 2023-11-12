@@ -34,6 +34,7 @@ function FetchPut() {
   const [curriculum, setCurriculum] = useState<string>("");
   const [category, setCategory] = useState<string>("");
   const [title, setTitle] = useState<string>("");
+  const [url, setUrl] = useState<string>("");
   const [body, setBody] = useState<string>("");
   const [datetime_column, setDatetime_column] = useState<string>("");
   let id = window.location.pathname;
@@ -51,6 +52,7 @@ function FetchPut() {
               curriculum,
               category,
               title,
+              url,
               body,
               datetime_column,
             }),
@@ -64,6 +66,7 @@ function FetchPut() {
       setCurriculum("");
       setCategory("");
       setBody("");
+      setUrl("");
       setTitle("");
       setDatetime_column("");
   } catch(err) {
@@ -116,6 +119,16 @@ function FetchPut() {
           className="ef"
         />
         <label>Title</label>
+        <span className="focus_line"></span>
+        </div>
+        <div className="cp_iptxt">
+        <input 
+          type={"text"}
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          className="ef"
+        />
+        <label>URL</label>
         <span className="focus_line"></span>
         </div>
         <div className="cp_iptxt">

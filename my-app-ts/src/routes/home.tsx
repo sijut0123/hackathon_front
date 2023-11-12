@@ -10,6 +10,7 @@ type UserData = {
   curriculum : string;
   category : string;
   title : string;
+  url : string;
   body : string;
   datetime_column : string;
 }
