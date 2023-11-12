@@ -38,7 +38,8 @@ export function Sidemenu() {
         'フロントエンドとバックエンドの接続',
         'CI(Continous Integration)',
         'CD(Continuous Delivery/Deployment)',
-        '認証'
+        '認証',
+        'その他'
         ].map((text) => (
             <Link to={"/" + text}>
             <ListItem button key={text}>

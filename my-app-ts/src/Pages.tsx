@@ -24,6 +24,7 @@ import Ci from './routes/sidecontents/contents/Ci';
 import Cd from './routes/sidecontents/contents/Cd';
 import Authentication from './routes/sidecontents/contents/Authentication';
 import SignUp from './routes/SingUp';
+import Others from './routes/sidecontents/contents/Others';
 
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -70,6 +71,7 @@ function Pages() {
             <Route path="/CI(Continuous Integration)" element={<Ci />} />
             <Route path="/CD(Continuous Delivery/Deployment)" element={<Cd />} />
             <Route path="/認証" element={<Authentication />} />
+            <Route path="/その他" element={<Others />} />
             <Route path="/addcontents" element={<AddContents />} />
             <Route path="*" element={<FetchPut />} />
             <Route path="/contents/*" element={<Contents />} />

@@ -20,7 +20,8 @@ const curriculums = [
     {label:'フロントエンドとバックエンドの接続', value:'frontend & backend'},
     {label:'CI(Continuous Integration', value:'ci'},
     {label:'CD(Continuous Delivery/Deployment)', value:'cd'},
-    {label:'認証', value:'authentication', }
+    {label:'認証', value:'authentication', },
+    {label:'その他', value:'others'}
   ];
   
   const categories = [
