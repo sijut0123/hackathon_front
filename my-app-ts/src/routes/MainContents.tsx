@@ -47,7 +47,10 @@ function MainContents() {
                         <div className="box8">
                             <p>更新日時： {data.datetime_column}</p>
                         </div>
-                        <p>{data.body}</p>
+                        <div className="box74">
+                            <div className="box-title">内容</div>
+                            <p>{data.body}</p>
+                        </div>
                     </div>
                 </div>
             ))}
