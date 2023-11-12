@@ -50,19 +50,21 @@ const PersistentDrawerMainContent = () => {
   const columns = [
     columnHelper.accessor('curriculum',{
       header:"カリキュラム",
-      sortDescFirst: false,
+      enableSorting: false,
       enableColumnFilter: false,
     }),
     columnHelper.accessor('category', {
       header: 'カテゴリー',
-      sortDescFirst: false,
+      enableSorting: false,
     }),
     columnHelper.accessor('title', {
       header: 'タイトル',
-      sortDescFirst: false,
+      enableSorting: false,
+      enableColumnFilter: false,
     }),
     columnHelper.accessor('datetime_column', {
       header:  '更新日時',
+      enableColumnFilter: false,
     }),
     columnHelper.display({
       id: 'contents',
@@ -86,9 +88,9 @@ const PersistentDrawerMainContent = () => {
       id: 'delete',
       header: () => '削除',
       cell: (props) => (
-        <Button onClick={() => FetchDelete(props.row.original.id)}>
+        <button onClick={() => FetchDelete(props.row.original.id)}>
           削除
-        </Button>
+        </button>
       ),
     }),
   ];
