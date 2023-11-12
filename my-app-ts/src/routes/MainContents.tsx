@@ -36,22 +36,17 @@ function MainContents() {
         <div>
             {users.map((data, index) => (
                 <div key={index}>
-                    <article>
-                        <h1>{data.title}</h1>
-                        <table>
-                            <tr className="box8">
-                                <th>カリキュラム：</th>
-                                <td>{data.curriculum}</td>
-                            </tr>
-                            <tr>
-                                <th>カテゴリー：</th>
-                                <td>{data.category}</td>
-                            </tr>
-                            <tr>
-                                <th>更新日時：</th>
-                                <td>{data.datetime_column}</td>
-                            </tr>
-                        </table>
+                    <article className="box29">
+                        <h1 className="boxtitle">{data.title}</h1>
+                        <div className="box8">
+                            <p>カリキュラム： {data.curriculum}</p>
+                        </div>
+                        <div className="box8">
+                            <p>カテゴリー： {data.category}</p>
+                        </div>
+                        <div className="box8">
+                            <p>更新日時： {data.datetime_column}</p>
+                        </div>
                         <p>{data.body}</p>
                     </article>
                 </div>
