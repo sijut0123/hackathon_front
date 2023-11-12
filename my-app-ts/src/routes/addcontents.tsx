@@ -161,7 +161,7 @@ return (
         <span className="focus_line"></span>
         </div>
         <div className="cp_iptxt">
-        <label>内容を入力してください</label>
+        <label>内容を入力してください（動画を投稿する場合はURLを貼ってください）</label>
         <textarea
           value={body}
           onChange={(e) => setBody(e.target.value)}
