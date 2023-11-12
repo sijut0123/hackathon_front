@@ -140,7 +140,6 @@ return (
           className="selectbutton"
           options={curriculums}
           defaultValue={{label:'Select...', value:'default'}}
-          isMulti
           onChange={handlechangecurriculum}
         />
         </div>
