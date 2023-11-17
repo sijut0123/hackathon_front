@@ -12,7 +12,7 @@ import {
   getFilteredRowModel,
 } from '@tanstack/react-table';
 import FetchUsers from "../FetchUsers";
-import { Button, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
+import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import { FetchDelete } from "../FetchDelete";
 import { useNavigate } from "react-router-dom";
 import Filter from "./Filter"
@@ -22,6 +22,7 @@ export type User = {
   curriculum      : string;
   category        : string;
   title           : string;
+  url             : string;
   body            : string;
   datetime_column : string;
 };
