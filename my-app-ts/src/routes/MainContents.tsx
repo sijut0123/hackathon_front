@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { User } from "./sidecontents/persistentDrawerMainContent";
 import "./home.css"
+import Linkify from "linkify-react";
 
 function MainContents() {
     const [users, setUsers] = useState<User[]>([]);
@@ -32,6 +33,9 @@ function MainContents() {
     useEffect(() => {
         FetchUsers((user: User[]) => { setUsers(user) });
     },[]);
+    const linkifyOptions = {
+        className: "text-blue-400",
+    };
     return (
         <div>
             {users.map((data, index) => (
@@ -48,7 +52,7 @@ function MainContents() {
                             <p>更新日時： {data.datetime_column}</p>
                         </div>
                         <div className="box8">
-                            <p>URL： {data.url}</p>
+                            <Linkify as="p" options={linkifyOptions}>URL： {data.url}</Linkify>
                         </div>
                         <div className="box74">
                             <div className="box-title">内容</div>

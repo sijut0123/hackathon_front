@@ -20,6 +20,8 @@
     "@types/yup": "^0.32.0",
     "firebase": "^10.5.2",
     "formik": "^2.4.5",
+    "linkify-react": "^4.1.2",
+    "linkifyjs": "^4.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.47.0",
