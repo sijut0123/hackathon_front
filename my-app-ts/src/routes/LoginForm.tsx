@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import "./LoginForm.css"
 
 const LoginForm: React.FC = () => {
-  const [userName, setUserName] = useState<string>("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -15,10 +14,9 @@ const LoginForm: React.FC = () => {
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential: { user: any; }) => {
       // Signed in 
-      alert("ログインユーザー: " + userName);
       navigate("/home");
       }).catch((err: any) => {
-        alert(err);
+        alert("メールアドレスかパスワードが間違っています。");
   });
   }
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
@@ -36,14 +34,6 @@ const LoginForm: React.FC = () => {
         <h1>ログイン</h1>
         <hr className='hr2'/>
         <div className='uiForm'>
-          <div className='formField'>
-          <label>Name: </label>
-            <input
-              type="string"
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
-            ></input>
-          </div>
           <div className='formField'>
             <label>Email: </label>
             <input

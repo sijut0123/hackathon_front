@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import "./LoginForm.css"
 
 const SignUp: React.FC = () => {
-    const [userName, setUserName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate()
@@ -12,7 +11,7 @@ const SignUp: React.FC = () => {
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            alert(`新規ユーザー: ${userName} \n ログイン画面に戻ってログインしてください`);
+            alert(`新規アカウントが作成できました \n ログイン画面に戻ってログインしてください`);
         })
         .catch((error) => {
         const errorMessage = error.message;
@@ -34,14 +33,6 @@ const SignUp: React.FC = () => {
             <h1>新規作成</h1>
             <hr />
             <div className='uiForm'>
-            <div className='formField'>
-                <label>Name: </label>
-                <input
-                    type="string"
-                    value={userName}
-                    onChange={(e) => setUserName(e.target.value)}
-                ></input>
-            </div>
             <div className='formField'>
                 <label>Email: </label>
                 <input
